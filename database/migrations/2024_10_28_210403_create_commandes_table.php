@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('commandes', function (Blueprint $table) {
+            $table->id();
+            $table->string('user_id');
+            $table->enum('status', ['attente', 'pret', 'urgente', 'annuler', 'livrer']);
+            $table->string('client_id');
+            $table->text('detail');
+            $table->text('besoin');
+            $table->integer('total');
+            $table->integer('avance');
+            $table->integer('reste');
+            $table->string('livraison');
+            $table->json('photos')->nullable();
+            $table->string('created_at')->nullable();
+            $table->string('updated_at')->nullable();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('commandes');
+    }
+};
