@@ -25,7 +25,7 @@ return new class extends Migration
             $table->boolean('terms');
             $table->string('created_at')->nullable();
             $table->string('updated_at')->nullable();
-            $table->rememberToken();
+            // $table->rememberToken();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
