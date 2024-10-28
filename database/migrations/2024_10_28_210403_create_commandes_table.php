@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('commandes', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
             $table->string('user_id');
             $table->enum('status', ['attente', 'pret', 'urgente', 'annuler', 'livrer']);
             $table->string('client_id');
