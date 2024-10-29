@@ -32,7 +32,7 @@ class AuthentificationController extends Controller
                 },
             ],
             'role' => 'required|string|in:proprietaire,user',
-            'password' => 'required|string|min:8',
+            'password' => 'required|string|min:4',
             'terms' => 'required|boolean|accepted',
             'created_at' => 'nullable|string',
             'updated_at' => 'nullable|string',
