@@ -14,28 +14,25 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasApiTokens;
 
-    /**
-     * Désactiver les auto-incréments de l'ID.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
-     * Désactiver les timestamps automatiques.
-     *
-     * @var bool
-     */
     public $timestamps = false;
+    public $incrementing = false; // Désactiver l'auto-incrémentation
+    protected $keyType = 'string'; // Définir le type de la clé primaire comme string
 
-    /**
-     * Le type de clé primaire (string si c'est un UUID).
-     *
-     * @var string
-     */
-    protected $keyType = 'string';
-
-    protected $guarded = [];
+    protected $fillable = [
+        'id', // Ajouter id dans les fillable
+        'etablissement',
+        'adresse',
+        'email',
+        'logo',
+        'nom',
+        'pays',
+        'telephone',
+        'role',
+        'password',
+        'terms',
+        'created_at',
+        'updated_at'
+    ];
 
      public function commandes()
     {

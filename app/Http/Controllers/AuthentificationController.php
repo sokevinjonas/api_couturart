@@ -11,46 +11,57 @@ class AuthentificationController extends Controller
 {
     public function register(Request $request)
     {
-        // Validation des données
         $validator = Validator::make($request->all(), [
+            'id' => 'required|string|unique:users', // Ajouter la validation de l'ID
+            'etablissement' => 'required|string|max:255',
+            'adresse' => 'nullable|string|max:255',
+            'email' => 'nullable|email|unique:users,email',
+            'logo' => 'nullable|string',
+            'nom' => 'required|string|max:255',
+            'pays' => 'required|string|max:255',
             'telephone' => [
                 'required',
                 'string',
                 'max:15',
                 function ($attribute, $value, $fail) use ($request) {
-                    // Vérifier que la combinaison pays + téléphone est unique
-                    if (User::where('pays', $request->pays)->where('telephone', $value)->exists()) {
+                    if (User::where('pays', $request->pays)
+                            ->where('telephone', $value)
+                            ->exists()) {
                         $fail('Ce numéro de téléphone est déjà enregistré pour cet indicatif.');
                     }
                 },
             ],
-            'password' => 'required|string', // "confirmed" s'assure qu'il existe un champ "password_confirmation" qui correspond
+            'role' => 'required|string|in:proprietaire,user',
+            'password' => 'required|string|min:8',
+            'terms' => 'required|boolean|accepted',
+            'created_at' => 'nullable|string',
+            'updated_at' => 'nullable|string',
         ]);
 
-        // Si la validation échoue, retourner les erreurs
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
+            return response()->json([
+                'message' => 'Validation failed',
+                'errors' => $validator->errors()
+            ], 422);
         }
 
-        // Création de l'utilisateur
-        $user = User::create([
-            'id' => $request->id,
-            'etablissement' => $request->etablissement,
-            'adresse' => $request->adresse,
-            'email' => $request->email,
-            'logo' => $request->logo,
-            'nom' => $request->nom,
-            'pays' => $request->pays,
-            'telephone' => $request->telephone,
-            'role' => $request->role,
-            'password' => Hash::make($request->password), // Hachage du mot de passe pour la sécurité
-            'terms' => $request->terms,
-            'created_at' => $request->created_at,
-            'updated_at' => $request->updated_at,
-        ]);
-           // Générer un token pour l'utilisateur
-           $token = $user->createToken('auth_token')->plainTextToken;
-        // Retourner les données de l'utilisateur et le jeton
+        $userData = $request->all();
+
+        // Si les dates ne sont pas fournies, utiliser la date actuelle au format string
+        if (!$request->created_at) {
+            $userData['created_at'] = now()->format('Y-m-d H:i:s');
+        }
+        if (!$request->updated_at) {
+            $userData['updated_at'] = now()->format('Y-m-d H:i:s');
+        }
+
+        // Hasher le mot de passe
+        $userData['password'] = Hash::make($request->password);
+
+        $user = User::create($userData);
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
         return response()->json([
             'message' => 'Utilisateur créé avec succès',
             'user' => $user,

@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\Client;
+use App\Models\Category;
 use App\Models\Commande;
+use App\Models\Measurement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SynchronisationController extends Controller
 {
@@ -18,10 +21,12 @@ class SynchronisationController extends Controller
         $request->validate([
             'entity' => 'required|string',
             'data' => 'required|array',
+            'user_id' => 'required|string', // Ajouter la validation pour user_id
         ]);
 
         $entity = $request->input('entity');
         $data = $request->input('data');
+        $user = $request->input('user_id');
 
         // Mapper l'entité à son modèle
         $model = $this->getModel($entity);
@@ -36,13 +41,25 @@ class SynchronisationController extends Controller
         }
 
         try {
-            // Créer une nouvelle instance du modèle et la remplir avec les données
-            $record = $model::create($data);
-            return response()->json([
-                'success' => true,
-                'data' => $record,
-                'message' => "{$entity} créé avec succès"
-            ], 201);
+            if ($user === Auth::user()->id) {
+                if ($model::where('id', $data['id'])->exists()) {
+                    // Mettre à jour l'enregistrement existant
+                    $record = $model::where('id', $data['id'])->update($data);
+                    return response()->json([
+                        'success' => true,
+                        'data' => $record,
+                        'message' => "{$entity} mis à jour avec succès"
+                    ], 200);
+                } else {
+                    // Créer un nouvel enregistrement
+                    $record = $model::create($data);
+                    return response()->json([
+                        'success' => true,
+                        'data' => $record,
+                        'message' => "{$entity} créé avec succès"
+                    ], 201);
+                }
+            }
         } catch (Exception $e) {
             return response()->json([
                 'error' => 'Échec de la création de l\'enregistrement',
@@ -51,14 +68,17 @@ class SynchronisationController extends Controller
         }
     }
 
+
     /**
      * Mapper le nom de l'entité à son modèle.
      */
     private function getModel($entity)
     {
         return match ($entity) {
-            'commandes' => Commande::class,
+            'categories' => Category::class,
+            'measurements' => Measurement::class,
             'clients' => Client::class,
+            'commandes' => Commande::class,
             default => null, // Si l'entité n'est pas trouvée
         };
     }

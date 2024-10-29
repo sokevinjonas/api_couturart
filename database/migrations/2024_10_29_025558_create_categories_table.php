@@ -11,20 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('nom');
-            $table->string('pays');
-            $table->string('telephone');
-            $table->string('sexe');
-            $table->string('dateAnniv')->nullable();
+            $table->string('label');
             $table->string('created_at')->nullable();
             $table->string('updated_at')->nullable();
             $table->string('user_id'); // Définit 'user_id' comme string
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
-
     }
 
     /**
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clients');
+        Schema::dropIfExists('categories');
     }
 };

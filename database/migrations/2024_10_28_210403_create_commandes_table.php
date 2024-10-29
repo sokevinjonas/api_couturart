@@ -12,10 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('commandes', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('user_id');
+            $table->string('id');
             $table->enum('status', ['attente', 'pret', 'urgente', 'annuler', 'livrer']);
-            $table->string('client_id');
             $table->text('detail');
             $table->text('besoin');
             $table->integer('total');
@@ -25,7 +23,14 @@ return new class extends Migration
             $table->json('photos')->nullable();
             $table->string('created_at')->nullable();
             $table->string('updated_at')->nullable();
+            $table->string('client_id');
+            $table->string('user_id');
+
+            // Définition de la clé étrangère
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
+
     }
 
     /**
