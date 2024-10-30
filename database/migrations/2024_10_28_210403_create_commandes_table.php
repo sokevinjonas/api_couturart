@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('id');
             $table->enum('status', ['attente', 'pret', 'urgente', 'annuler', 'livrer']);
             $table->text('detail');
-            $table->text('besoin');
+            $table->text('besoin')->nullable();
             $table->integer('total');
             $table->integer('avance');
             $table->integer('reste');
