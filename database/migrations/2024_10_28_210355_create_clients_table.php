@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->string('nom');
             $table->string('pays');
-            $table->string('telephone');
+            $table->string('telephone')->nullable();
             $table->string('sexe');
             $table->string('dateAnniv')->nullable();
             $table->string('created_at')->nullable();
