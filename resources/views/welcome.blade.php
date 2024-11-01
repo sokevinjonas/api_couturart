@@ -353,22 +353,23 @@
     </section>
 
     <section id="download" class="cta">
-      <div class="container text-center">
-        <h2 class="mb-4">Téléchargez Couturart maintenant</h2>
-        <p class="lead">Disponible sur Android, iOS, Web et PC</p>
-        <div class="mt-4">
-          <a href="#" class="btn btn-light btn-lg me-3 mb-3"
-            ><i class="fab fa-google-play me-2"></i>Google Play</a
-          >
-          <a href="#" class="btn btn-light btn-lg me-3 mb-3"
-            ><i class="fab fa-apple me-2"></i>App Store</a
-          >
-          <a href="#" class="btn btn-light btn-lg mb-3"
-            ><i class="fas fa-globe me-2"></i>Version Web</a
-          >
+        <div class="container text-center">
+          <h2 class="mb-4">Téléchargez Couturart maintenant</h2>
+          <p class="lead">Disponible sur Android, iOS, Web et PC</p>
+          <div class="mt-4">
+            <a href="#" class="btn btn-light btn-lg me-3 mb-3" onclick="confirmDownload(event, '{{ asset('version-app/couturart_v-2-1-0.apk') }}')">
+              {{-- <i class="fab fa-google-play me-2"></i>Google Play --}}
+              <i class="fab fa-android me-2"></i>Android
+            </a>
+            <a href="https://app-couturart.eliteero.com/" target="_blank" class="btn btn-light btn-lg me-3 mb-3">
+              <i class="fab fa-apple me-2"></i>iOS
+            </a>
+            <a href="https://app-couturart.eliteero.com/" target="_blank" class="btn btn-light btn-lg mb-3">
+              <i class="fas fa-globe me-2"></i>Web & PC
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     <footer class="footer">
       <div class="container">
@@ -392,13 +393,10 @@
           </div>
           <div class="col-md-4">
             <h5>Contactez-nous</h5>
-            <p>Email: contact@couturart.com<br />Tél: +226 XX XX XX XX</p>
+            <p>Email: contact@couturart.com<br />Tél: +226 56 78 55 80 /  +226 52 64 56 34</p>
             <div class="social-icons mt-3">
               <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
               <a href="#" class="me-2"><i class="fab fa-tiktok"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
             </div>
           </div>
         </div>
@@ -408,7 +406,17 @@
         </div>
       </div>
     </footer>
-
+    <script>
+        function confirmDownload(event, url) {
+          event.preventDefault(); // Empêche le lien de suivre son URL immédiatement
+          const confirmation = confirm("Êtes-vous sûr de vouloir télécharger Couturart ?");
+          if (confirmation) {
+            window.location.href = url; // Redirige vers l'URL pour démarrer le téléchargement
+          } else {
+            console.log("Téléchargement annulé.");
+          }
+        }
+      </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
