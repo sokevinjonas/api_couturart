@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\Category;
 use App\Models\Commande;
 use App\Models\Measurement;
+use App\Models\MesureClient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -79,6 +80,7 @@ class SynchronisationController extends Controller
             'measurements' => Measurement::class,
             'clients' => Client::class,
             'commandes' => Commande::class,
+            'mesures_clients' => MesureClient::class,
             default => null, // Si l'entité n'est pas trouvée
         };
     }
