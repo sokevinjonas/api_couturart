@@ -64,7 +64,7 @@
               de votre activité
             </p>
             <a href="#download" class="btn btn-primary btn-lg mt-3"
-              >Essai gratuit d'1 mois</a
+              >Essai gratuit de 60 jours</a
             >
           </div>
           <div class="col-lg-6">
