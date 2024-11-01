@@ -63,7 +63,7 @@
               Couturart : L'application 100% Burkinabè qui simplifie la gestion
               de votre activité
             </p>
-            <a href="#" class="btn btn-primary btn-lg mt-3"
+            <a href="#download" class="btn btn-primary btn-lg mt-3"
               >Essai gratuit d'1 mois</a
             >
           </div>
