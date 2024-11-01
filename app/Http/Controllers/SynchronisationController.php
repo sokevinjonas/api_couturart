@@ -40,6 +40,10 @@ class SynchronisationController extends Controller
         if ($entity === 'commandes' && array_key_exists('photos', $data)) {
             $data['photos'] = json_encode($data['photos']); // Encoder en JSON si 'photos' existe
         }
+        // Traitement spécial pour les commandes, vérifier si 'mesures' est présent
+        if ($entity === 'mesures_clients' && array_key_exists('mesures', $data)) {
+            $data['mesures'] = json_encode($data['mesures']); // Encoder en JSON si 'mesures' existe
+        }
 
         try {
             if ($user === Auth::user()->id) {
