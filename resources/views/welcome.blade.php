@@ -233,7 +233,7 @@
                   <li><i class="fas fa-check"></i> Galerie photos limitée</li>
                   <li><i class="fas fa-check"></i> Notifications WhatsApp clients</li>
                   <li><i class="fas fa-check"></i> 2h de formation incluse</li>
-                  <li><i class="fas fa-times text-danger"></i> Support dédié 24/7</li>
+                  <li><i class="fas fa-check"></i> Support dédié 24/7</li>
                   <li><i class="fas fa-times text-danger"></i> Personnalisation de l'interface</li>
                   <li><i class="fas fa-times text-danger"></i> Rapports personnalisés</li>
                   <li><i class="fas fa-times text-danger"></i> Site web boutique incluse</li>
@@ -260,7 +260,6 @@
                 <p class="text-muted mb-4">Pour les grands ateliers</p>
                 <ul class="feature-list">
                   <li><i class="fas fa-check"></i> Toutes les fonctionnalités Pro sans limites</li>
-                  <li><i class="fas fa-check"></i> Support dédié 24/7</li>
                   <li><i class="fas fa-check"></i> Personnalisation de l'interface</li>
                   <li><i class="fas fa-check"></i> Rapports personnalisés</li>
                   <li><i class="fas fa-check"></i> Site web boutique incluse</li>
