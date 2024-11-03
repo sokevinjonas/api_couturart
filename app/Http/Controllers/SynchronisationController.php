@@ -139,12 +139,13 @@ class SynchronisationController extends Controller
             // Vérifier si l'utilisateur a le droit de supprimer
             if ($user === Auth::user()->id) {
                 // Vérifier si l'enregistrement existe
-                if ($model::where('id', $id)->exists()) {
-                    // Supprimer l'enregistrement
-                    $model::destroy($id);
+                if ($model::where('id', $data['id'])->exists()) {
+                    // Mettre à jour l'enregistrement existant
+                    $record = $model::where('id', $data['id'])->update($data);
                     return response()->json([
                         'success' => true,
-                        'message' => "{$entity} supprimé avec succès"
+                        'data' => $record,
+                        'message' => "{$entity} mis à jour avec succès"
                     ], 200);
                 } else {
                     return response()->json(['error' => 'Enregistrement non trouvé'], 404);
