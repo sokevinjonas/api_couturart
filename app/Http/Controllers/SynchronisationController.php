@@ -72,7 +72,91 @@ class SynchronisationController extends Controller
             ], 500);
         }
     }
+    public function update(Request $request)
+    {
+        // Valider la requête
+        $request->validate([
+            'entity' => 'required|string',
+            'data' => 'required|array',
+            'user_id' => 'required|string', // Ajouter la validation pour user_id
+        ]);
 
+        $entity = $request->input('entity');
+        $data = $request->input('data');
+        $user = $request->input('user_id');
+
+        // Mapper l'entité à son modèle
+        $model = $this->getModel($entity);
+
+        if (!$model) {
+            return response()->json(['error' => 'Entity non trouvée'], 404);
+        }
+
+        try {
+            // Vérifier si l'utilisateur a le droit de mettre à jour
+            if ($user === Auth::user()->id) {
+                // Vérifier si l'enregistrement existe
+                if ($model::where('id', $data['id'])->exists()) {
+                    // Mettre à jour l'enregistrement existant
+                    $record = $model::where('id', $data['id'])->update($data);
+                    return response()->json([
+                        'success' => true,
+                        'data' => $record,
+                        'message' => "{$entity} mis à jour avec succès"
+                    ], 200);
+                } else {
+                    return response()->json(['error' => 'Enregistrement non trouvé'], 404);
+                }
+            }
+        } catch (Exception $e) {
+            return response()->json([
+                'error' => 'Échec de la mise à jour de l\'enregistrement',
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
+    public function destroy(Request $request)
+    {
+        // Valider la requête
+        $request->validate([
+            'entity' => 'required|string',
+            'id' => 'required|integer', // Assurez-vous que l'ID est un entier
+            'user_id' => 'required|string', // Ajouter la validation pour user_id
+        ]);
+
+        $entity = $request->input('entity');
+        $id = $request->input('id');
+        $user = $request->input('user_id');
+
+        // Mapper l'entité à son modèle
+        $model = $this->getModel($entity);
+
+        if (!$model) {
+            return response()->json(['error' => 'Entity non trouvée'], 404);
+        }
+
+        try {
+            // Vérifier si l'utilisateur a le droit de supprimer
+            if ($user === Auth::user()->id) {
+                // Vérifier si l'enregistrement existe
+                if ($model::where('id', $id)->exists()) {
+                    // Supprimer l'enregistrement
+                    $model::destroy($id);
+                    return response()->json([
+                        'success' => true,
+                        'message' => "{$entity} supprimé avec succès"
+                    ], 200);
+                } else {
+                    return response()->json(['error' => 'Enregistrement non trouvé'], 404);
+                }
+            }
+        } catch (Exception $e) {
+            return response()->json([
+                'error' => 'Échec de la suppression de l\'enregistrement',
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
 
     /**
      * Mapper le nom de l'entité à son modèle.

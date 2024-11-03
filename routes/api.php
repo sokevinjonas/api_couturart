@@ -13,7 +13,9 @@ Route::post('/register', [AuthentificationController::class, 'register']);
 Route::middleware('auth:sanctum')->group(function () {
 
     // Route pour la synchronisation
-    Route::post('sync/store', [SynchronisationController::class, 'store'])->name('synchroniser');
+    Route::post('sync/store', [SynchronisationController::class, 'store']);
+    Route::post('sync/update', [SynchronisationController::class, 'update']);
+    Route::post('sync/destroy', [SynchronisationController::class, 'destroy']);
 
     //souscription
     Route::post('/subscriptions', [AbonnementController::class, 'store']);
