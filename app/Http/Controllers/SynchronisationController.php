@@ -36,14 +36,8 @@ class SynchronisationController extends Controller
             return response()->json(['error' => 'Entity non trouvée'], 404);
         }
 
-        // Traitement spécial pour les commandes, vérifier si 'photos' est présent
-        if ($entity === 'commandes' && array_key_exists('photos', $data)) {
-            $data['photos'] = json_encode($data['photos']); // Encoder en JSON si 'photos' existe
-        }
-        // Traitement spécial pour les commandes, vérifier si 'mesures' est présent
-        if ($entity === 'mesures_clients' && array_key_exists('mesures', $data)) {
-            $data['mesures'] = json_encode($data['mesures']); // Encoder en JSON si 'mesures' existe
-        }
+        // Appliquer le traitement spécial pour certaines entités
+        $data = $this->applySpecialDataTreatment($entity, $data);
 
         try {
             if ($user === Auth::user()->id) {
@@ -85,6 +79,13 @@ class SynchronisationController extends Controller
         $data = $request->input('data');
         $user = $request->input('user_id');
 
+        // Vérifier que l'ID est bien présent dans le tableau 'data'
+        if (!isset($data['id'])) {
+            return response()->json(['error' => 'ID manquant dans les données'], 400);
+        }
+
+        $id = $data['id'];
+
         // Mapper l'entité à son modèle
         $model = $this->getModel($entity);
 
@@ -92,21 +93,25 @@ class SynchronisationController extends Controller
             return response()->json(['error' => 'Entity non trouvée'], 404);
         }
 
+        // Appliquer le traitement spécial pour certaines entités
+        $data = $this->applySpecialDataTreatment($entity, $data);
+
         try {
             // Vérifier si l'utilisateur a le droit de mettre à jour
             if ($user === Auth::user()->id) {
                 // Vérifier si l'enregistrement existe
-                if ($model::where('id', $data['id'])->exists()) {
+                if ($model::where('id', $id)->exists()) {
                     // Mettre à jour l'enregistrement existant
-                    $record = $model::where('id', $data['id'])->update($data);
+                    $model::where('id', $id)->update($data);
                     return response()->json([
                         'success' => true,
-                        'data' => $record,
                         'message' => "{$entity} mis à jour avec succès"
                     ], 200);
                 } else {
                     return response()->json(['error' => 'Enregistrement non trouvé'], 404);
                 }
+            } else {
+                return response()->json(['error' => 'Non autorisé'], 403);
             }
         } catch (Exception $e) {
             return response()->json([
@@ -115,6 +120,7 @@ class SynchronisationController extends Controller
             ], 500);
         }
     }
+
     public function destroy(Request $request)
     {
         // Valider la requête
@@ -181,4 +187,25 @@ class SynchronisationController extends Controller
             default => null, // Si l'entité n'est pas trouvée
         };
     }
+
+    /**
+ * Applique un traitement spécial aux données en fonction de l'entité.
+ *
+ * @param string $entity
+ * @param array $data
+ * @return array
+ */
+private function applySpecialDataTreatment($entity, $data)
+{
+    // Traitement spécial pour les commandes, vérifier si 'photos' est présent
+    if ($entity === 'commandes' && array_key_exists('photos', $data)) {
+        $data['photos'] = json_encode($data['photos']); // Encoder en JSON si 'photos' existe
+    }
+    // Traitement spécial pour les mesures des clients, vérifier si 'mesures' est présent
+    if ($entity === 'mesures_clients' && array_key_exists('mesures', $data)) {
+        $data['mesures'] = json_encode($data['mesures']); // Encoder en JSON si 'mesures' existe
+    }
+
+    return $data;
+}
 }
