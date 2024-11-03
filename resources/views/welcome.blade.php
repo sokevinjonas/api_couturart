@@ -238,8 +238,7 @@
                   <li><i class="fas fa-times text-danger"></i> Rapports personnalisés</li>
                   <li><i class="fas fa-times text-danger"></i> Site web boutique incluse</li>
                 </ul>
-                {{-- <p class="text-success mb-4">🎁 3 mois au prix de 2</p>
-                <a href="#" class="btn btn-primary btn-lg">Choisir Pro</a> --}}
+                <a href="https://wa.me/22656785580?text=Bonjour,%20je%20suis%20intéressé%20par%20le%20plan%20Pro." class="btn btn-primary btn-lg">Choisir Pro</a>
               </div>
             </div>
 
@@ -264,8 +263,7 @@
                   <li><i class="fas fa-check"></i> Rapports personnalisés</li>
                   <li><i class="fas fa-check"></i> Site web boutique incluse</li>
                 </ul>
-                {{-- <p class="text-success mb-4">🎁 6 mois au prix de 4</p>
-                <a href="#" class="btn btn-outline-danger btn-lg">Devenir VIP</a> --}}
+                <a href="https://wa.me/22656785580?text=Bonjour,%20je%20suis%20intéressé%20par%20le%20plan%20VIP." class="btn btn-outline-danger btn-lg">Devenir VIP</a>
               </div>
             </div>
           </div>
