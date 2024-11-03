@@ -228,7 +228,7 @@
                 </div>
                 <p class="text-muted mb-4">Pour les ateliers en croissance</p>
                 <ul class="feature-list">
-                  <li><i class="fas fa-check"></i> Commandes limitées à 100</li>
+                  <li><i class="fas fa-check"></i> Commandes limitées à 30</li>
                   <li><i class="fas fa-check"></i> Rapports par mois</li>
                   <li><i class="fas fa-check"></i> Galerie photos limitée</li>
                   <li><i class="fas fa-check"></i> Notifications WhatsApp clients</li>
