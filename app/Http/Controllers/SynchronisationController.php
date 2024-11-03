@@ -120,13 +120,20 @@ class SynchronisationController extends Controller
         // Valider la requête
         $request->validate([
             'entity' => 'required|string',
-            'id' => 'required|integer', // Assurez-vous que l'ID est un entier
+            'data' => 'required|array',
             'user_id' => 'required|string', // Ajouter la validation pour user_id
         ]);
 
         $entity = $request->input('entity');
-        $id = $request->input('id');
+        $data = $request->input('data');
         $user = $request->input('user_id');
+
+        // Vérifier que l'ID est bien présent dans le tableau 'data'
+        if (!isset($data['id'])) {
+            return response()->json(['error' => 'ID manquant dans les données'], 400);
+        }
+
+        $id = $data['id'];
 
         // Mapper l'entité à son modèle
         $model = $this->getModel($entity);
@@ -139,17 +146,18 @@ class SynchronisationController extends Controller
             // Vérifier si l'utilisateur a le droit de supprimer
             if ($user === Auth::user()->id) {
                 // Vérifier si l'enregistrement existe
-                if ($model::where('id', $data['id'])->exists()) {
-                    // Mettre à jour l'enregistrement existant
-                    $record = $model::where('id', $data['id'])->update($data);
+                if ($model::where('id', $id)->exists()) {
+                    // Supprimer l'enregistrement
+                    $model::destroy($id);
                     return response()->json([
                         'success' => true,
-                        'data' => $record,
-                        'message' => "{$entity} mis à jour avec succès"
+                        'message' => "{$entity} supprimé avec succès"
                     ], 200);
                 } else {
                     return response()->json(['error' => 'Enregistrement non trouvé'], 404);
                 }
+            } else {
+                return response()->json(['error' => 'Non autorisé'], 403);
             }
         } catch (Exception $e) {
             return response()->json([
