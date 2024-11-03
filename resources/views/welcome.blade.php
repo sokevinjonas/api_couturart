@@ -67,9 +67,9 @@
               >Essai gratuit de 60 jours</a
             >
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 mt-3">
             <img
-              src="https://placeholderimage.eu/api/600/400"
+              src="{{asset('assets/images/ecran1.png')}}"
               alt="Couturart App Preview"
               class="img-fluid rounded-3 shadow-lg"
             />
@@ -155,148 +155,124 @@
     </section>
 
     <section id="preview" class="preview">
-      <div class="container">
-        <h2 class="text-center mb-5">Aperçu de l'application</h2>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <img
-              src="https://placeholderimage.eu/api/400/600"
-              alt="Écran de gestion des mesures"
-              class="img-fluid rounded-3 shadow"
-            />
-            <p class="text-center mt-3">Écran de gestion des mesures</p>
-          </div>
-          <div class="col-md-4">
-            <img
-              src="https://placeholderimage.eu/api/400/600"
-              alt="Tableau de bord des commandes"
-              class="img-fluid rounded-3 shadow"
-            />
-            <p class="text-center mt-3">Tableau de bord des commandes</p>
-          </div>
-          <div class="col-md-4">
-            <img
-              src="https://placeholderimage.eu/api/400/600"
-              alt="Statistiques de l'atelier"
-              class="img-fluid rounded-3 shadow"
-            />
-            <p class="text-center mt-3">Statistiques de l'atelier</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing" class="pricing">
-      <div class="container">
-        <h2 class="text-center mb-5">Choisissez votre formule</h2>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="pricing-card">
-              <h3>Basic</h3>
-              <div class="pricing-options">
-                <div class="monthly">
-                  <p class="price">2 000 FCFA<span>/mois</span></p>
-                  <small>ou</small>
-                  <p class="annual-price text-success">
-                    19 000 FCFA<span>/an</span>
-                  </p>
-                  <div class="savings-badge">Économisez 5 000 FCFA</div>
-                </div>
-              </div>
-              <p class="text-muted mb-4">Pour les ateliers débutants</p>
-              <ul class="feature-list">
-                <li><i class="fas fa-check"></i> Jusqu'à 100 clients</li>
-                <li>
-                  <i class="fas fa-check"></i> Gestion des mesures clients
-                </li>
-                <li>
-                  <i class="fas fa-check"></i> Suivi des commandes de base
-                </li>
-                <li>
-                  <i class="fas fa-check"></i> Statistiques mensuelles simples
-                </li>
-                <li><i class="fas fa-check"></i> Sauvegarde des données</li>
-                <li><i class="fas fa-check"></i> Mode hors connexion</li>
-                <li><i class="fas fa-check"></i> Support par WhatsApp</li>
-                <li class="text-muted">
-                  <i class="fas fa-times"></i> Export des données
-                </li>
-              </ul>
-              <p class="text-success mb-4">✨ Premier mois gratuit !</p>
-              <a href="#" class="btn btn-outline-danger btn-lg"
-                >Commencer gratuitement</a
-              >
+        <div class="container">
+          <h2 class="text-center mb-5">Aperçu de l'application</h2>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <img
+                src="{{ asset('assets/images/ecran2.png') }}"
+                alt="Écran de suivi des commandes"
+                class="img-fluid rounded-3 shadow"
+              />
+              <p class="text-center mt-3">Écran de suivi des commandes</p>
             </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="pricing-card featured">
-              <div class="popular-badge">Plus populaire</div>
-              <h3>Premium</h3>
-              <div class="pricing-options">
-                <div class="monthly">
-                  <p class="price">3 500 FCFA<span>/mois</span></p>
-                  <small>ou</small>
-                  <p class="annual-price text-success">
-                    30 000 FCFA<span>/an</span>
-                  </p>
-                  <div class="savings-badge">Économisez 12 000 FCFA</div>
-                </div>
-              </div>
-              <p class="text-muted mb-4">Pour les ateliers en croissance</p>
-              <ul class="feature-list">
-                <li><i class="fas fa-check"></i> Clients illimités</li>
-                <li>
-                  <i class="fas fa-check"></i> Toutes les fonctionnalités Basic
-                </li>
-                <li><i class="fas fa-check"></i> Export PDF et Excel</li>
-                <li><i class="fas fa-check"></i> Statistiques détaillées</li>
-                <li><i class="fas fa-check"></i> Galerie photos illimitée</li>
-                <li><i class="fas fa-check"></i> Notifications SMS clients</li>
-                <li><i class="fas fa-check"></i> Support prioritaire 7j/7</li>
-                <li><i class="fas fa-check"></i> 2h de formation incluse</li>
-              </ul>
-              <p class="text-success mb-4">🎁 3 mois au prix de 2</p>
-              <a href="#" class="btn btn-primary btn-lg">Choisir Premium</a>
+            <div class="col-md-4">
+              <img
+                src="{{ asset('assets/images/ecran3.png') }}"
+                alt="Écran de mes clients"
+                class="img-fluid rounded-3 shadow"
+              />
+              <p class="text-center mt-3">Écran de mes clients</p>
             </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="pricing-card">
-              <h3>VIP</h3>
-              <div class="pricing-options">
-                <div class="monthly">
-                  <p class="price">7 000 FCFA<span>/mois</span></p>
-                  <small>ou</small>
-                  <p class="annual-price text-success">
-                    60 000 FCFA<span>/an</span>
-                  </p>
-                  <div class="savings-badge">Économisez 24 000 FCFA</div>
-                </div>
-              </div>
-              <p class="text-muted mb-4">Pour les grands ateliers</p>
-              <ul class="feature-list">
-                <li>
-                  <i class="fas fa-check"></i> Toutes les fonctionnalités
-                  Premium
-                </li>
-                <li><i class="fas fa-check"></i> Support dédié 24/7</li>
-                <li><i class="fas fa-check"></i> Formation sur site (4h)</li>
-                <li>
-                  <i class="fas fa-check"></i> Personnalisation de l'interface
-                </li>
-                <li><i class="fas fa-check"></i> Gestion multi-utilisateurs</li>
-                <li><i class="fas fa-check"></i> Rapports personnalisés</li>
-                <li><i class="fas fa-check"></i> Backup quotidien</li>
-                <li><i class="fas fa-check"></i> Page web boutique incluse</li>
-              </ul>
-              <p class="text-success mb-4">🎁 6 mois au prix de 4</p>
-              <a href="#" class="btn btn-outline-danger btn-lg">Devenir VIP</a>
+            <div class="col-md-4">
+              <img
+                src="{{ asset('assets/images/ecran4.png') }}"
+                alt="Écran pour la synchronisation"
+                class="img-fluid rounded-3 shadow"
+              />
+              <p class="text-center mt-3">Écran pour la synchronisation</p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+
+      <section id="pricing" class="pricing">
+        <div class="container">
+          <h2 class="text-center mb-5">Choisissez votre formule</h2>
+          <div class="row g-4">
+            <!-- Essai Gratuit -->
+            <div class="col-md-4">
+              <div class="pricing-card">
+                <h3>Essai Gratuit</h3>
+                <div class="pricing-options">
+                  <p class="price">Gratuit<span>/2 mois</span></p>
+                </div>
+                <p class="text-muted mb-4">Idéal pour découvrir l'application</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Commandes illimitées</li>
+                    <li><i class="fas fa-check"></i> Rapports par mois</li>
+                    <li><i class="fas fa-check"></i> Galerie photos illimitée</li>
+                    <li><i class="fas fa-check"></i> Notifications WhatsApp clients</li>
+                    <li><i class="fas fa-check"></i> 2h de formation incluse</li>
+                </ul>
+                <p class="text-success mb-4">✨ Essai gratuit pendant 2 mois !</p>
+                <a href="#download" class="btn btn-outline-danger btn-lg">Commencer gratuitement</a>
+              </div>
+            </div>
+
+            <!-- Plan Pro -->
+            <div class="col-md-4">
+              <div class="pricing-card featured">
+                <div class="popular-badge">Plus populaire</div>
+                <h3>Pro</h3>
+                <div class="pricing-options">
+                  <div class="monthly">
+                    <p class="price">5 000 FCFA<span>/mois</span></p>
+                    <small>ou</small>
+                    <p class="annual-price text-success">
+                      50 000 FCFA<span>/an</span>
+                    </p>
+                    <div class="savings-badge">Économisez 10 000 FCFA</div>
+                  </div>
+                </div>
+                <p class="text-muted mb-4">Pour les ateliers en croissance</p>
+                <ul class="feature-list">
+                  <li><i class="fas fa-check"></i> Commandes limitées à 100</li>
+                  <li><i class="fas fa-check"></i> Rapports par mois</li>
+                  <li><i class="fas fa-check"></i> Galerie photos limitée</li>
+                  <li><i class="fas fa-check"></i> Notifications WhatsApp clients</li>
+                  <li><i class="fas fa-check"></i> 2h de formation incluse</li>
+                  <li><i class="fas fa-times text-danger"></i> Support dédié 24/7</li>
+                  <li><i class="fas fa-times text-danger"></i> Personnalisation de l'interface</li>
+                  <li><i class="fas fa-times text-danger"></i> Rapports personnalisés</li>
+                  <li><i class="fas fa-times text-danger"></i> Site web boutique incluse</li>
+                </ul>
+                {{-- <p class="text-success mb-4">🎁 3 mois au prix de 2</p>
+                <a href="#" class="btn btn-primary btn-lg">Choisir Pro</a> --}}
+              </div>
+            </div>
+
+            <!-- Plan VIP -->
+            <div class="col-md-4">
+              <div class="pricing-card">
+                <h3>VIP</h3>
+                <div class="pricing-options">
+                  <div class="monthly">
+                    <p class="price">15 000 FCFA<span>/mois</span></p>
+                    <small>ou</small>
+                    <p class="annual-price text-success">
+                      150 000 FCFA<span>/an</span>
+                    </p>
+                    <div class="savings-badge">Économisez 30 000 FCFA</div>
+                  </div>
+                </div>
+                <p class="text-muted mb-4">Pour les grands ateliers</p>
+                <ul class="feature-list">
+                  <li><i class="fas fa-check"></i> Toutes les fonctionnalités Pro sans limites</li>
+                  <li><i class="fas fa-check"></i> Support dédié 24/7</li>
+                  <li><i class="fas fa-check"></i> Personnalisation de l'interface</li>
+                  <li><i class="fas fa-check"></i> Rapports personnalisés</li>
+                  <li><i class="fas fa-check"></i> Site web boutique incluse</li>
+                </ul>
+                {{-- <p class="text-success mb-4">🎁 6 mois au prix de 4</p>
+                <a href="#" class="btn btn-outline-danger btn-lg">Devenir VIP</a> --}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
     <section id="testimonials" class="testimonials">
       <div class="container">
