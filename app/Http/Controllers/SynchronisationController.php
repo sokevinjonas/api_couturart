@@ -6,6 +6,7 @@ use Exception;
 use App\Models\Client;
 use App\Models\Category;
 use App\Models\Commande;
+use App\Models\Abonnement;
 use App\Models\Measurement;
 use App\Models\MesureClient;
 use Illuminate\Http\Request;
@@ -216,6 +217,7 @@ class SynchronisationController extends Controller
             'clients' => Client::class,
             'commandes' => Commande::class,
             'mesures_clients' => MesureClient::class,
+            'subscription' => Abonnement::class,
             default => null, // Si l'entité n'est pas trouvée
         };
     }
@@ -227,17 +229,30 @@ class SynchronisationController extends Controller
  * @param array $data
  * @return array
  */
-private function applySpecialDataTreatment($entity, $data)
-{
-    // Traitement spécial pour les commandes, vérifier si 'photos' est présent
-    if ($entity === 'commandes' && array_key_exists('photos', $data)) {
-        $data['photos'] = json_encode($data['photos']); // Encoder en JSON si 'photos' existe
-    }
-    // Traitement spécial pour les mesures des clients, vérifier si 'mesures' est présent
-    if ($entity === 'mesures_clients' && array_key_exists('mesures', $data)) {
-        $data['mesures'] = json_encode($data['mesures']); // Encoder en JSON si 'mesures' existe
-    }
+    private function applySpecialDataTreatment($entity, $data)
+    {
+        // Traitement spécial pour les commandes, vérifier si 'photos' est présent
+        if ($entity === 'commandes' && array_key_exists('photos', $data)) {
+            $data['photos'] = json_encode($data['photos']); // Encoder en JSON si 'photos' existe
+        }
+        // Traitement spécial pour les mesures des clients, vérifier si 'mesures' est présent
+        if ($entity === 'mesures_clients' && array_key_exists('mesures', $data)) {
+            $data['mesures'] = json_encode($data['mesures']); // Encoder en JSON si 'mesures' existe
+        }
 
-    return $data;
-}
+        return $data;
+    }
+    private function applyDecodeDataTreatment($entity, $data)
+    {
+        // Traitement spécial pour les commandes, vérifier si 'photos' est présent
+        if ($entity === 'commandes' && array_key_exists('photos', $data)) {
+            $data['photos'] = json_decode($data['photos'], true); // Décoder de JSON en tableau si 'photos' existe
+        }
+        // Traitement spécial pour les mesures des clients, vérifier si 'mesures' est présent
+        if ($entity === 'mesures_clients' && array_key_exists('mesures', $data)) {
+            $data['mesures'] = json_decode($data['mesures'], true); // Décoder de JSON en tableau si 'mesures' existe
+        }
+
+        return $data;
+    }
 }

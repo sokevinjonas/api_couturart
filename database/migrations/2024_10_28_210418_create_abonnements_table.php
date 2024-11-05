@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('abonnements', function (Blueprint $table) {
             $table->string('id');
+            $table->string('starts_at');
+            $table->string('ends_at');
+
             $table->enum('plan', ['essai', 'pro', 'vip']);
             $table->integer('duration');
             $table->integer('amount')->default(0);
@@ -20,9 +23,6 @@ return new class extends Migration
             $table->string('payment_method')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('user_id');
-
-            $table->string('created_at')->nullable();
-            $table->string('updated_at')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
