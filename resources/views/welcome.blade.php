@@ -334,10 +334,10 @@
               {{-- <i class="fab fa-google-play me-2"></i>Google Play --}}
               <i class="fab fa-android me-2"></i>Android
             </a>
-            <a href="https://app-couturart.eliteero.com/" target="_blank" class="btn btn-light btn-lg me-3 mb-3">
-              <i class="fab fa-apple me-2"></i>iOS
+            <a href="https://app-couturart.eliteero.com/onboarding" target="_blank" class="btn btn-light btn-lg me-3 mb-3">
+              <i class="fab fa-apple me-2"></i>Iphone
             </a>
-            <a href="https://app-couturart.eliteero.com/" target="_blank" class="btn btn-light btn-lg mb-3">
+            <a href="https://app-couturart.eliteero.com/onboarding" target="_blank" class="btn btn-light btn-lg mb-3">
               <i class="fas fa-globe me-2"></i>Web & PC
             </a>
           </div>
