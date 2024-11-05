@@ -173,6 +173,38 @@ class SynchronisationController extends Controller
         }
     }
 
+    public function fetch(Request $request)
+    {
+        // Validation pour s'assurer que 'entities' est un tableau
+        $request->validate([
+            'entities' => 'required|array',
+            'entities.*' => 'string', // chaque élément du tableau doit être une chaîne de caractères
+        ]);
+
+        $entities = $request->input('entities');
+        $userId = Auth::id(); // Récupère l'ID de l'utilisateur actuellement authentifié
+        $data = [];
+
+        foreach ($entities as $entity) {
+            // Obtenir le modèle correspondant à chaque entité
+            $model = $this->getModel($entity);
+
+            if ($model) {
+                // Récupérer les enregistrements pour chaque entité et les stocker
+                $data[$entity] = $model::where('user_id', $userId)->get();
+            } else {
+                // Si le modèle pour une entité n'existe pas, renvoyer une erreur
+                return response()->json(['error' => "L'entité '{$entity}' est introuvable"], 404);
+            }
+        }
+
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+            'message' => "Données récupérées avec succès"
+        ], 200);
+    }
+
     /**
      * Mapper le nom de l'entité à son modèle.
      */

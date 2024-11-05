@@ -12,8 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('abonnements', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('id');
+            $table->enum('plan', ['essai', 'pro', 'vip']);
+            $table->integer('duration');
+            $table->integer('amount')->default(0);
+            $table->enum('status', ['active', 'expire', 'cancel']);
+            $table->string('payment_method')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('user_id');
+
+            $table->string('created_at')->nullable();
+            $table->string('updated_at')->nullable();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

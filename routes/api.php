@@ -12,6 +12,8 @@ Route::post('/register', [AuthentificationController::class, 'register']);
 // Routes protégées (nécessitent une authentification avec Sanctum)
 Route::middleware('auth:sanctum')->group(function () {
 
+    Route::post('/sync/fetch', [SynchronisationController::class, 'fetch']);
+
     // Route pour la synchronisation
     Route::post('sync/store', [SynchronisationController::class, 'store']);
     Route::post('sync/update', [SynchronisationController::class, 'update']);
