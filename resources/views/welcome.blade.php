@@ -330,7 +330,7 @@
           <h2 class="mb-4">Téléchargez Couturart maintenant</h2>
           <p class="lead">Disponible sur Android, iOS, Web et PC</p>
           <div class="mt-4">
-            <a href="#" class="btn btn-light btn-lg me-3 mb-3" onclick="confirmDownload(event, '{{ asset('version-app/couturart_v-2-1-0.apk') }}')">
+            <a href="#" class="btn btn-light btn-lg me-3 mb-3" onclick="confirmDownload(event, '{{ asset('version-app/couturart_v-2-2-0.apk') }}')">
               {{-- <i class="fab fa-google-play me-2"></i>Google Play --}}
               <i class="fab fa-android me-2"></i>Android
             </a>
