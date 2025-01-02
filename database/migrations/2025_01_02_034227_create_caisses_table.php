@@ -16,6 +16,7 @@ return new class extends Migration
             $table->enum('operation', ['entrer', 'sortie']);
             $table->integer('amount');
             $table->string('reason');
+            $table->string('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('created_at')->nullable();
             $table->string('updated_at')->nullable();
