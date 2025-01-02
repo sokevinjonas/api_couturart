@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use App\Models\Caisse;
 use App\Models\Client;
 use App\Models\Category;
 use App\Models\Commande;
@@ -218,6 +219,7 @@ class SynchronisationController extends Controller
             'commandes' => Commande::class,
             'mesures_clients' => MesureClient::class,
             'subscription' => Abonnement::class,
+            'caisses' => Caisse::class,
             default => null, // Si l'entité n'est pas trouvée
         };
     }
