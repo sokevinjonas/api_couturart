@@ -215,7 +215,7 @@
             <!-- Plan Standard -->
             <div class="col-md-6">
               <div class="pricing-card featured">
-                <div class="popular-badge">Plus complet</div>
+                <div class="popular-badge">Plus populaire</div>
                 <h3>Standard</h3>
                 <div class="pricing-options">
                   <p class="price">30 000 FCFA<span>/an</span></p>
