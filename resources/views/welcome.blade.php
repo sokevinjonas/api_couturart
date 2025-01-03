@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Couturart - L'application révolutionnaire pour les couturiers et stylistes
-      au Burkina Faso
-    </title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+          Couturart - Simplifiez et modernisez votre activité grâce à une application intuitive et performante
+        </title>
+
+        <!-- Métadonnées SEO -->
+        <meta name="description" content="Couturart est une application intuitive et performante pour moderniser votre activité. Découvrez des fonctionnalités simplifiées pour une gestion optimale de votre entreprise." />
+        <meta name="keywords" content="Couturart, application de gestion, activité, moderne, intuitive, performance" />
+        <meta name="robots" content="index, follow" />
+
+        <!-- Open Graph (OG) pour l'intégration sur les réseaux sociaux -->
+        <meta property="og:title" content="Couturart - Simplifiez et modernisez votre activité grâce à une application intuitive et performante" />
+        <meta property="og:description" content="Couturart est une application intuitive et performante pour moderniser votre activité. Découvrez des fonctionnalités simplifiées pour une gestion optimale de votre entreprise." />
+        <meta property="og:image" content="{{asset('assets/images/icon.jpeg')}}" /> <!-- Remplace par l'URL de ton image pour la carte -->
+        <meta property="og:url" content="https://couturart.eliteero.com/" /> <!-- Remplace par l'URL de ton site -->
+        <meta property="og:type" content="website" />
+
+        <!-- Twitter Card (pour Twitter) -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Couturart - Simplifiez et modernisez votre activité grâce à une application intuitive et performante" />
+        <meta name="twitter:description" content="Couturart est une application intuitive et performante pour moderniser votre activité. Découvrez des fonctionnalités simplifiées pour une gestion optimale de votre entreprise." />
+        <meta name="twitter:image" content="{{asset('assets/images/icon.jpeg')}}" /> <!-- Remplace par l'URL de ton image pour la carte -->
+
+        <!-- Lien vers Bootstrap et Font Awesome -->
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+          rel="stylesheet"
+        />
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          rel="stylesheet"
+        />
+
+        <!-- Lien vers ton CSS -->
+        <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
+      </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
