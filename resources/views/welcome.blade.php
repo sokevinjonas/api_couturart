@@ -338,18 +338,19 @@
     <section id="download" class="cta">
         <div class="container text-center">
           <h2 class="mb-4">Téléchargez Couturart maintenant</h2>
-          <p class="lead">Disponible sur Android, iOS, Web et PC</p>
+          <p class="lead">Disponible sur Android</p>
+          <p class="lead">Bientot disponible sur iOS et PC</p>
           <div class="mt-4">
             <a href="#" class="btn btn-light btn-lg me-3 mb-3" onclick="confirmDownload(event, '{{ asset('version-app/couturart-v-2-2-0.apk') }}')">
-              {{-- <i class="fab fa-google-play me-2"></i>Google Play --}}
-              <i class="fab fa-android me-2"></i>Android
+              <i class="fab fa-google-play me-2"></i>Google Play
+              {{-- <i class="fab fa-android me-2"></i>Android --}}
             </a>
-            <a href="https://app-couturart.eliteero.com" target="_blank" class="btn btn-light btn-lg me-3 mb-3">
+            {{-- <a href="https://app-couturart.eliteero.com" target="_blank" class="btn btn-light btn-lg me-3 mb-3">
               <i class="fab fa-apple me-2"></i>Iphone
             </a>
             <a href="https://app-couturart.eliteero.com" target="_blank" class="btn btn-light btn-lg mb-3">
               <i class="fas fa-globe me-2"></i>Web & PC
-            </a>
+            </a> --}}
           </div>
         </div>
       </section>
