@@ -58,13 +58,13 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6">
-            <h1>Révolutionnez votre atelier de couture</h1>
+            <h1>Digitalisez la gestion de votre atelier de couture</h1>
             <p class="lead">
-              Couturart : L'application 100% Burkinabè qui simplifie la gestion
-              de votre activité
+              Avec <strong>Couturart</strong>, simplifiez et modernisez votre activité grâce à une application intuitive et performante.
             </p>
+
             <a href="#download" class="btn btn-primary btn-lg mt-3"
-              >Essai gratuit de 60 jours</a
+              >Essai gratuit de 30 jours</a
             >
           </div>
           <div class="col-lg-6 mt-3">
@@ -191,79 +191,46 @@
         <div class="container">
           <h2 class="text-center mb-5">Choisissez votre formule</h2>
           <div class="row g-4">
-            <!-- Essai Gratuit -->
-            <div class="col-md-4">
+            <!-- Plan Essentiel -->
+            <div class="col-md-6">
               <div class="pricing-card">
-                <h3>Essai Gratuit</h3>
+                <h3>Essentiel</h3>
                 <div class="pricing-options">
-                  <p class="price">Gratuit<span>/2 mois</span></p>
+                  <p class="price">15 000 FCFA<span>/an</span></p>
                 </div>
-                <p class="text-muted mb-4">Idéal pour découvrir l'application</p>
+                <p class="text-muted mb-4">Idéal pour une gestion simple et efficace</p>
                 <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Commandes illimitées</li>
-                    <li><i class="fas fa-check"></i> Rapports par mois</li>
-                    <li><i class="fas fa-check"></i> Galerie photos illimitée</li>
-                    <li><i class="fas fa-check"></i> Notifications WhatsApp clients</li>
-                    <li><i class="fas fa-check"></i> 2h de formation incluse</li>
+                  <li><i class="fas fa-check"></i> Gestion des mesures et commandes</li>
+                  <li><i class="fas fa-check"></i> Historique client local (stocké sur l’appareil)</li>
+                  <li><i class="fas fa-check"></i> Utilisation hors ligne</li>
+                  <li><i class="fas fa-times text-danger"></i> Sauvegarde en ligne des données</li>
+                  <li><i class="fas fa-times text-danger"></i> Notifications (SMS ou application)</li>
+                  <li><i class="fas fa-times text-danger"></i> Suivi financier</li>
+                  <li><i class="fas fa-times text-danger"></i> Rapports ou analyses avancées</li>
                 </ul>
-                <p class="text-success mb-4">✨ Essai gratuit pendant 2 mois !</p>
-                <a href="#download" class="btn btn-outline-danger btn-lg">Commencer gratuitement</a>
+                <a href="https://wa.me/22656785580?text=Bonjour,%20je%20souhaite%20m'abonner%20au%20plan%20Essentiel." class="btn btn-outline-danger btn-lg">Choisir Essentiel</a>
               </div>
             </div>
 
-            <!-- Plan Pro -->
-            <div class="col-md-4">
+            <!-- Plan Standard -->
+            <div class="col-md-6">
               <div class="pricing-card featured">
-                <div class="popular-badge">Plus populaire</div>
-                <h3>Pro</h3>
+                <div class="popular-badge">Plus complet</div>
+                <h3>Standard</h3>
                 <div class="pricing-options">
-                  <div class="monthly">
-                    <p class="price">5 000 FCFA<span>/mois</span></p>
-                    <small>ou</small>
-                    <p class="annual-price text-success">
-                      50 000 FCFA<span>/an</span>
-                    </p>
-                    <div class="savings-badge">Économisez 10 000 FCFA</div>
-                  </div>
+                  <p class="price">30 000 FCFA<span>/an</span></p>
                 </div>
-                <p class="text-muted mb-4">Pour les ateliers en croissance</p>
+                <p class="text-muted mb-4">Parfait pour une gestion avancée et sécurisée</p>
                 <ul class="feature-list">
-                  <li><i class="fas fa-check"></i> Commandes limitées à 30</li>
-                  <li><i class="fas fa-check"></i> Rapports par mois</li>
-                  <li><i class="fas fa-check"></i> Galerie photos limitée</li>
-                  <li><i class="fas fa-check"></i> Notifications WhatsApp clients</li>
-                  <li><i class="fas fa-check"></i> 2h de formation incluse</li>
-                  <li><i class="fas fa-check"></i> Support dédié 24/7</li>
-                  <li><i class="fas fa-times text-danger"></i> Personnalisation de l'interface</li>
-                  <li><i class="fas fa-times text-danger"></i> Rapports personnalisés</li>
-                  <li><i class="fas fa-times text-danger"></i> Site web boutique incluse</li>
+                  <li><i class="fas fa-check"></i> Toutes les fonctionnalités du plan Essentiel</li>
+                  <li><i class="fas fa-check"></i> Sauvegarde en ligne des données</li>
+                  <li><i class="fas fa-check"></i> Synchronisation entre appareils</li>
+                  <li><i class="fas fa-check"></i> Notifications automatiques dans l’application</li>
+                  <li><i class="fas fa-check"></i> Suivi financier détaillé</li>
+                  <li><i class="fas fa-check"></i> Rapports mensuels sur revenus et bénéfices</li>
+                  <li><i class="fas fa-times text-danger"></i> Notifications SMS (option disponible)</li>
                 </ul>
-                <a href="https://wa.me/22656785580?text=Bonjour,%20je%20suis%20intéressé%20par%20le%20plan%20Pro." class="btn btn-primary btn-lg">Choisir Pro</a>
-              </div>
-            </div>
-
-            <!-- Plan VIP -->
-            <div class="col-md-4">
-              <div class="pricing-card">
-                <h3>VIP</h3>
-                <div class="pricing-options">
-                  <div class="monthly">
-                    <p class="price">15 000 FCFA<span>/mois</span></p>
-                    <small>ou</small>
-                    <p class="annual-price text-success">
-                      150 000 FCFA<span>/an</span>
-                    </p>
-                    <div class="savings-badge">Économisez 30 000 FCFA</div>
-                  </div>
-                </div>
-                <p class="text-muted mb-4">Pour les grands ateliers</p>
-                <ul class="feature-list">
-                  <li><i class="fas fa-check"></i> Toutes les fonctionnalités Pro sans limites</li>
-                  <li><i class="fas fa-check"></i> Personnalisation de l'interface</li>
-                  <li><i class="fas fa-check"></i> Rapports personnalisés</li>
-                  <li><i class="fas fa-check"></i> Site web boutique incluse</li>
-                </ul>
-                <a href="https://wa.me/22656785580?text=Bonjour,%20je%20suis%20intéressé%20par%20le%20plan%20VIP." class="btn btn-outline-danger btn-lg">Devenir VIP</a>
+                <a href="https://wa.me/22656785580?text=Bonjour,%20je%20souhaite%20m'abonner%20au%20plan%20Standard." class="btn btn-primary btn-lg">Choisir Standard</a>
               </div>
             </div>
           </div>
@@ -271,59 +238,102 @@
       </section>
 
 
-    <section id="testimonials" class="testimonials">
-      <div class="container">
-        <h2 class="text-center mb-5">Ce que disent nos clients</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="testimonial-card">
-              <img
-                src="https://placeholderimage.eu/api/80/80"
-                alt="Aminata K."
-                class="rounded-circle"
-              />
-              <p>
-                "Couturart a complètement transformé la gestion de mon atelier.
-                Je gagne un temps précieux chaque jour."
-              </p>
-              <h4>Aminata K.</h4>
-              <p class="text-muted">Styliste à Ouagadougou</p>
+
+      <section id="testimonials" class="testimonials">
+        <div class="container">
+          <h2 class="text-center mb-5">Ce que disent nos clients</h2>
+          <div class="row">
+            <!-- Burkina Faso -->
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <p>
+                  "Couturart a complètement transformé la gestion de mon atelier. Je gagne un temps précieux chaque jour."
+                </p>
+                <h4>Aminata K.</h4>
+                <p class="text-muted">Styliste à Ouagadougou, Burkina Faso</p>
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="testimonial-card">
-              <img
-                src="https://placeholderimage.eu/api/80/80"
-                alt="Issouf T."
-                class="rounded-circle"
-              />
-              <p>
-                "Mes clients sont ravis de recevoir des notifications sur
-                l'avancement de leurs commandes. C'est un vrai plus pour mon
-                activité."
-              </p>
-              <h4>Issouf T.</h4>
-              <p class="text-muted">Tailleur à Bobo-Dioulasso</p>
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <p>
+                  "Mes clients sont ravis de recevoir des notifications sur l'avancement de leurs commandes. C'est un vrai plus pour mon activité."
+                </p>
+                <h4>Issouf T.</h4>
+                <p class="text-muted">Tailleur à Bobo-Dioulasso, Burkina Faso</p>
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="testimonial-card">
-              <img
-                src="https://placeholderimage.eu/api/80/80"
-                alt="Fatou S."
-                class="rounded-circle"
-              />
-              <p>
-                "Les statistiques m'aident à mieux comprendre mon activité et à
-                prendre les bonnes décisions pour développer mon atelier."
-              </p>
-              <h4>Fatou S.</h4>
-              <p class="text-muted">Créatrice de mode à Koudougou</p>
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <p>
+                  "Les statistiques m'aident à mieux comprendre mon activité et à prendre les bonnes décisions pour développer mon atelier."
+                </p>
+                <h4>Fatou S.</h4>
+                <p class="text-muted">Créatrice de mode à Koudougou, Burkina Faso</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <p>
+                  "Avec Couturart, j'ai pu améliorer la relation avec mes clients. Ils se sentent mieux suivis et plus satisfaits."
+                </p>
+                <h4>Moussa Z.</h4>
+                <p class="text-muted">Couturier à Banfora, Burkina Faso</p>
+              </div>
+            </div>
+
+            <!-- Mali -->
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <p>
+                  "Depuis que j'utilise Couturart, mon atelier est beaucoup mieux organisé, et mes revenus ont augmenté."
+                </p>
+                <h4>Awa D.</h4>
+                <p class="text-muted">Styliste à Bamako, Mali</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <p>
+                  "L'application est simple et efficace. Je ne peux plus m'en passer pour gérer les commandes de mes clients."
+                </p>
+                <h4>Abdoulaye K.</h4>
+                <p class="text-muted">Tailleur à Sikasso, Mali</p>
+              </div>
+            </div>
+
+            <!-- Bénin -->
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <p>
+                  "Couturart m'a permis de digitaliser mes processus. C'est un outil indispensable pour tout couturier professionnel."
+                </p>
+                <h4>Judith A.</h4>
+                <p class="text-muted">Couturière à Cotonou, Bénin</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <p>
+                  "Grâce à cette application, je gère mes finances plus facilement, et je peux me concentrer sur mon travail."
+                </p>
+                <h4>Mathieu E.</h4>
+                <p class="text-muted">Créateur de mode à Porto-Novo, Bénin</p>
+              </div>
+            </div>
+
+            <!-- Côte d'Ivoire -->
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <p>
+                  "Je suis impressionné par la simplicité d'utilisation et les fonctionnalités proposées. C'est un vrai changement pour mon atelier."
+                </p>
+                <h4>Koffi N.</h4>
+                <p class="text-muted">Tailleur à Abidjan, Côte d'Ivoire</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     <section id="download" class="cta">
         <div class="container text-center">
@@ -366,10 +376,10 @@
           </div>
           <div class="col-md-4">
             <h5>Contactez-nous</h5>
-            <p>Email: contact@couturart.com<br />Tél: +226 56 78 55 80 /  +226 52 64 56 34</p>
+            <p>Email: sokevin7@gamil.com<br />Tél: +226 56 78 55 80 /  +226 52 64 56 34</p>
             <div class="social-icons mt-3">
-              <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="me-2"><i class="fab fa-tiktok"></i></a>
+              <a href="https://www.facebook.com/profile.php?id=61568132046099&mibextid=ZbWKwL" target="_blank"  class="me-2"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.tiktok.com/@couturart?_t=ZN-8slOK3fADri&_r=1" target="_blank"  class="me-2"><i class="fab fa-tiktok"></i></a>
             </div>
           </div>
         </div>
