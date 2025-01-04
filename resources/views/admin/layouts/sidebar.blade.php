@@ -36,7 +36,7 @@
         </a>
         <ul id="licenses-nav" class="nav-content collapse">
           <li>
-            <a href="./licenses-generate.html">
+            <a href="{{route('licence.create')}}">
               <i class="bi bi-circle"></i><span>Générer une licence</span>
             </a>
           </li>
@@ -58,7 +58,7 @@
 
       <!-- Paramètres -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="./settings.html">
+        <a class="nav-link collapsed" href="{{route('paremetre')}}">
           <i class="bi bi-gear"></i>
           <span>Paramètres</span>
         </a>

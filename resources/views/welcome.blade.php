@@ -109,8 +109,7 @@
               <h3>Gain de temps considérable</h3>
               <p>
                 Fini les cahiers et les calculs manuels ! Gérez vos clients et
-                commandes 3 fois plus rapidement qu'avec les méthodes
-                traditionnelles.
+                commandes 3 fois plus rapidement.
               </p>
             </div>
           </div>
