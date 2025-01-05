@@ -9,19 +9,18 @@ use App\Http\Controllers\panel\UtilisateurController;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('admin');
+});
 
-Route::middleware(['admin'])->group(function () {
-    Route::get('/test', function () {
-        return 'Middleware admin fonctionne !';
-    });
-    Route::post('/logout', [AuthAdminController::class, 'logout'])->name('logout');
+// Route::middleware(['admin'])->group(function () {
+
+    Route::post('logout', [AuthAdminController::class, 'logout'])->name('logout');
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/utilisateurs', [UtilisateurController::class, 'index'])->name('utilisateurs');
-    Route::get('/paremetre', [SettingController::class, 'index'])->name('paremetre');
-    Route::get('/create-licence', [LicenceController::class, 'create'])->name('licence.create');
-});
+    Route::get('utilisateurs', [UtilisateurController::class, 'index'])->name('utilisateurs');
+    Route::get('paremetre', [SettingController::class, 'index'])->name('paremetre');
+    Route::get('create-licence', [LicenceController::class, 'create'])->name('licence.create');
+    Route::post('store_licence', [LicenceController::class, 'store'])->name('licence.store');
+// });
 // SettingController
 
 // Route de connexion (accessible sans authentification)

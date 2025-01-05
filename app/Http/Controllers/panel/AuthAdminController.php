@@ -26,6 +26,7 @@ class AuthAdminController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            // $token = $user->createToken('auth_token')->plainTextToken;
 
             return redirect()->intended(route('dashboard'));
         }

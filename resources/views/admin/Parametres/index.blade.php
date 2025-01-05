@@ -13,6 +13,11 @@
 @endsection
 @section('content')
 <div class="row">
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <!-- Colonne gauche : Tableau des forfaits -->
     <div class="col-md-6">
       <div class="card">
@@ -57,22 +62,19 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Créer un nouveau forfait</h5>
-          <form>
+          <form action="{{  route('licence.store')}}" method="POST">
+            @csrf
             <div class="mb-3">
               <label for="plan" class="form-label">Plan</label>
-              <input type="text" class="form-control" id="plan" placeholder="Nom du plan (ex : Premium)">
+              <input type="text" class="form-control" id="plan" name="plan" placeholder="Nom du plan (ex : Premium)">
             </div>
             <div class="mb-3">
-              <label for="prix-mensuel" class="form-label">Prix Mensuel (€)</label>
-              <input type="number" class="form-control" id="prix-mensuel" placeholder="Ex : 10">
-            </div>
-            <div class="mb-3">
-              <label for="prix-annuel" class="form-label">Prix Annuel (€)</label>
-              <input type="number" class="form-control" id="prix-annuel" placeholder="Ex : 100">
+              <label for="prix-mensuel" class="form-label">Prix Mensuel (FCFA)</label>
+              <input type="number" class="form-control" name="prix_mensuel" id="prix-mensuel" placeholder="Ex : 10">
             </div>
             <div class="mb-3">
               <label for="description" class="form-label">Description</label>
-              <textarea class="form-control" id="description" rows="3" placeholder="Description du plan"></textarea>
+              <textarea class="form-control" id="description" name="description" rows="3" placeholder="Description du plan"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Enregistrer</button>
           </form>
