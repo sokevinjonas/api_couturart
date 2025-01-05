@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('nom');
             $table->string('pays');
             $table->string('telephone');
-            $table->string('role');
+            // $table->string('role');
+            $table->enum('role', ['admin', 'proprietaire', 'moderateur', 'partenaire'])->default('proprietaire');
             $table->string('password');
             $table->boolean('terms');
             $table->string('created_at')->nullable();

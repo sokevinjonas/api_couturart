@@ -15,6 +15,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable, HasApiTokens;
 
     public $timestamps = false;
+
     public $incrementing = false; // Désactiver l'auto-incrémentation
     protected $keyType = 'string'; // Définir le type de la clé primaire comme string
 

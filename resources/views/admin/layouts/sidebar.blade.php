@@ -69,10 +69,13 @@
         <hr>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" onclick="return confirm('Êtes-vous sûr ?')">
-          <i class="bi bi-box-arrow-right"></i>
-          <span>Déconnexion</span>
-        </a>
-      </li>
+        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+            @csrf
+            <button type="submit" class="nav-link collapsed" onclick="return confirm('Êtes-vous sûr ?')">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Déconnexion</span>
+            </button>
+        </form>
+    </li>
     </ul>
   </aside>
