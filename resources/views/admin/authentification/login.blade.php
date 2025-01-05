@@ -1,6 +1,6 @@
 {{-- @dump($errors->all()) --}}
 {{-- @dump($errors->any()) --}}
-@dump($errors)
+{{-- @dump($errors) --}}
 <!DOCTYPE html>
 <html lang="fr">
 

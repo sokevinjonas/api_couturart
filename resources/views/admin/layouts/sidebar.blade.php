@@ -2,7 +2,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
       <!-- Tableau de bord -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="./dashboard.html">
+        <a class="nav-link collapsed" href="{{route('dashboard')}}">
           <i class="bi bi-speedometer2"></i>
           <span>Tableau de bord</span>
         </a>
