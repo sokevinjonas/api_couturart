@@ -29,28 +29,27 @@
                 <th>Plan</th>
                 <th>Mensuel</th>
                 <th>Annuel</th>
-                <th>Actions</th>
+                {{-- <th>Actions</th> --}}
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Plan Basique</td>
-                <td>10 €</td>
-                <td>100 €</td>
-                <td>
-                  <button class="btn btn-warning btn-sm">Éditer</button>
-                  <button class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce forfait ?')">Supprimer</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Plan Premium</td>
-                <td>20 €</td>
-                <td>200 €</td>
-                <td>
-                  <button class="btn btn-warning btn-sm">Éditer</button>
-                  <button class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce forfait ?')">Supprimer</button>
-                </td>
-              </tr>
+                @forelse ($licences as $licence )
+                <tr>
+                  <td> {{ $licence->plan }} </td>
+                  <td>{{ $licence->prix_mensuel }} Fcfa</td>
+                  <td> {{ $licence->prix_mensuel * 12 }} Fcfa </td>
+                  {{-- <td>
+                    <button class="btn btn-warning btn-sm">Éditer</button>
+                    <button class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce forfait ?')">Supprimer</button>
+                  </td> --}}
+                </tr>
+                @empty
+                    <tr>
+                        <td>
+                            Aucune Licence configurer
+                        </td>
+                    </tr>
+                @endforelse
             </tbody>
           </table>
         </div>

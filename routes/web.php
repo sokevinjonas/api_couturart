@@ -18,8 +18,10 @@ Route::get('/', function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('utilisateurs', [UtilisateurController::class, 'index'])->name('utilisateurs');
     Route::get('paremetre', [SettingController::class, 'index'])->name('paremetre');
+    Route::get('liste_licence', [LicenceController::class, 'index'])->name('licence.index');
     Route::get('create-licence', [LicenceController::class, 'create'])->name('licence.create');
     Route::post('store_licence', [LicenceController::class, 'store'])->name('licence.store');
+    Route::post('generer_new_licence', [LicenceController::class, 'newLicence'])->name('licence.new_licence');
 // });
 // SettingController
 

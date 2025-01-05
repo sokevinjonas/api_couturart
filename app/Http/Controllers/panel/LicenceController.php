@@ -2,15 +2,35 @@
 
 namespace App\Http\Controllers\panel;
 
+use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Licence;
+use App\Models\Abonnement;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class LicenceController extends Controller
 {
-    public function create()
+    public function index()
     {
-        return view('admin.licences.create');
+        $abonnement = Abonnement::with('user')->get();
+        return view('admin.licences.index', compact('abonnement'));
+    }
+    public function create(Request $request)
+    {
+         // Recherche d'utilisateurs si une requête est faite
+         $search = $request->input('search');
+
+         $users = User::query()
+             ->when($search, function ($query) use ($search) {
+                 $query->where('nom', 'LIKE', "%{$search}%")
+                       ->orWhere('id', 'LIKE', "%{$search}%")
+                       ->orWhere('telephone', 'LIKE', "%{$search}%");
+             })
+             ->get();
+
+             $licences = Licence::all();
+        return view('admin.licences.create', compact('users', 'search', 'licences'));
     }
 
     public function store(Request $request)
@@ -32,4 +52,47 @@ class LicenceController extends Controller
         // Redirection ou réponse
         return redirect()->back()->with('success', 'Licence créée avec succès.');
     }
+    public function newLicence(Request $request)
+    {
+        // dd($request->all());
+        $validatedData = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'plan' => 'required|exists:licences,id',
+            'duration' => 'required|integer|min:1',
+        ]);
+        // dd($validatedData);
+        $userId = $validatedData['user_id'];
+        $plan = $validatedData['plan'];
+        $duration = filter_var($validatedData['duration'], FILTER_VALIDATE_INT);
+
+        // Vérifie si un abonnement existe déjà pour l'utilisateur
+        $abonnement = Abonnement::where('user_id', $userId)->first();
+
+        if ($abonnement) {
+            // Mise à jour de l'abonnement existant
+            $abonnement->licence_id = $plan;
+            $abonnement->duration = $duration;
+            $abonnement->status = 'active';
+            $abonnement->starts_at = Carbon::now(); // Date du jour
+            $abonnement->ends_at = Carbon::now()->addMonths($duration);
+            $abonnement->save();
+
+            return redirect()->back()->with('success', 'La licence a été mise à jour avec succès.');
+        } else {
+            // Création d'un nouvel abonnement
+            Abonnement::create([
+                'user_id' => $userId,
+                'licence_id' => $plan,
+                'duration' => $duration,
+                'amount' => Licence::find($plan)->prix_mensuel * $duration,
+                'status' => 'active',
+                'status' => 'active',
+                'starts_at' => Carbon::now(), // Date du jour
+                'ends_at' => Carbon::now()->addMonths($duration),
+            ]);
+
+            return redirect()->back()->with('success', 'La licence a été créée avec succès.');
+        }
+    }
+
 }

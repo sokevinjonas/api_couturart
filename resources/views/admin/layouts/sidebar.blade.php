@@ -41,7 +41,7 @@
             </a>
           </li>
           <li>
-            <a href="./licenses-list.html">
+            <a href="{{  route('licence.index')}}">
               <i class="bi bi-circle"></i><span>Liste des licences</span>
             </a>
           </li>

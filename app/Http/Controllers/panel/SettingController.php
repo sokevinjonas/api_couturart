@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\panel;
 
-use App\Http\Controllers\Controller;
+use App\Models\Licence;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SettingController extends Controller
 {
    public function index()
    {
-    return view('admin.Parametres.index');
+    $licences = Licence::all();
+
+    return view('admin.Parametres.index', compact('licences'));
    }
 }
