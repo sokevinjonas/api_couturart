@@ -34,11 +34,11 @@
         <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $user->name }}</h5>
+                    <h5 class="card-title">{{ $user->etablissement }}</h5>
                     <p class="card-text">
-                        <strong>ID :</strong> {{ $user->id }}<br>
-                        <strong>Nom :</strong> {{ $user->nom }} <br>
-                        <strong>Telephone :</strong> {{ $user->pays }} {{  $user->telephone}}
+                        <strong>Nom Proprietaire :</strong> {{ $user->nom }} <br>
+                        <strong>Telephone :</strong> {{ $user->pays }} {{  $user->telephone}} <br>
+                        <strong>Date D'adesion: {{ \Carbon\Carbon::parse($user->created_at)->format('d/m/Y') }}</strong> <br>
                     </p>
                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#generateLicenseModal"
                         data-user-id="{{ $user->id }}"

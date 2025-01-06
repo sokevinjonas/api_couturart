@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Commande;
+use App\Models\Abonnement;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -38,6 +39,10 @@ class User extends Authenticatable
      public function commandes()
     {
         return $this->hasMany(Commande::class, 'user_id');
+    }
+    public function abonnement()
+    {
+        return $this->belongsTo(Abonnement::class);
     }
 
     /**

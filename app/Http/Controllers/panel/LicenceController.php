@@ -21,13 +21,13 @@ class LicenceController extends Controller
          // Recherche d'utilisateurs si une requête est faite
          $search = $request->input('search');
 
-         $users = User::query()
-             ->when($search, function ($query) use ($search) {
-                 $query->where('nom', 'LIKE', "%{$search}%")
-                       ->orWhere('id', 'LIKE', "%{$search}%")
-                       ->orWhere('telephone', 'LIKE', "%{$search}%");
-             })
-             ->get();
+         $users = User::when($search, function ($query) use ($search) {
+             $query->where('nom', 'LIKE', "%{$search}%")
+             ->orWhere('id', 'LIKE', "%{$search}%")
+             ->orWhere('telephone', 'LIKE', "%{$search}%");
+            })
+            ->get();
+            // dd($users);
 
              $licences = Licence::all();
         return view('admin.licences.create', compact('users', 'search', 'licences'));

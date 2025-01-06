@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\panel;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UtilisateurController extends Controller
 {
     public function index()
-    {
-        return view('admin.utilisateurs.index');
+    {   
+        $users = User::where('role', 'proprietaire')->latest('created_at')->get();
+        return view('admin.utilisateurs.index', compact('users'));
     }
 }
