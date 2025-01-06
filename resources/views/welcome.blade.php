@@ -89,11 +89,7 @@
             >
           </div>
           <div class="col-lg-6 mt-3">
-            <img
-              src="{{asset('assets/images/ecran1.png')}}"
-              alt="Couturart App Preview"
-              class="img-fluid rounded-3 shadow-lg"
-            />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YdAHgkspUXc?si=e0C7i6DSnDBaPggK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -180,27 +176,27 @@
           <div class="row g-4">
             <div class="col-md-4">
               <img
-                src="{{ asset('assets/images/ecran2.png') }}"
+                src="{{ asset('assets/images/image_1.png') }}"
                 alt="Écran de suivi des commandes"
                 class="img-fluid rounded-3 shadow"
               />
-              <p class="text-center mt-3">Écran de suivi des commandes</p>
+              <p class="text-center mt-3">Page Inscription/Connexion</p>
             </div>
             <div class="col-md-4">
               <img
-                src="{{ asset('assets/images/ecran3.png') }}"
+                src="{{ asset('assets/images/image_2.png') }}"
                 alt="Écran de mes clients"
                 class="img-fluid rounded-3 shadow"
               />
-              <p class="text-center mt-3">Écran de mes clients</p>
+              <p class="text-center mt-3">Page Accueil</p>
             </div>
             <div class="col-md-4">
               <img
-                src="{{ asset('assets/images/ecran4.png') }}"
+                src="{{ asset('assets/images/image_3.png') }}"
                 alt="Écran pour la synchronisation"
                 class="img-fluid rounded-3 shadow"
               />
-              <p class="text-center mt-3">Écran pour la synchronisation</p>
+              <p class="text-center mt-3">Page Caisse/Dépenses</p>
             </div>
           </div>
         </div>
