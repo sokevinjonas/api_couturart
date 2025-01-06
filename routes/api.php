@@ -19,8 +19,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('sync/update', [SynchronisationController::class, 'update']);
     Route::post('sync/destroy', [SynchronisationController::class, 'destroy']);
 
-    //souscription
-    Route::post('/subscriptions', [AbonnementController::class, 'store']);
-    Route::get('/subscriptions/activate', [AbonnementController::class, 'getActiveSubscription']);
 });
 
