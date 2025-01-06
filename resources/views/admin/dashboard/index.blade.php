@@ -27,9 +27,9 @@
                 <i class="bi bi-people"></i>
               </div>
               <div class="ps-3">
-                <h6>1,244</h6>
-                <span class="text-success small pt-1 fw-bold">12%</span>
-                <span class="text-muted small pt-2 ps-1">augmentation</span>
+                <h6> {{  $user->count()}}</h6>
+                {{-- <span class="text-success small pt-1 fw-bold">12%</span>
+                <span class="text-muted small pt-2 ps-1">augmentation</span> --}}
               </div>
             </div>
           </div>
@@ -46,9 +46,9 @@
                 <i class="bi bi-card-checklist"></i>
               </div>
               <div class="ps-3">
-                <h6>3,264</h6>
-                <span class="text-success small pt-1 fw-bold">8%</span>
-                <span class="text-muted small pt-2 ps-1">augmentation</span>
+                <h6>{{ $abonnement->count() }}</h6>
+                {{-- <span class="text-success small pt-1 fw-bold">8%</span>
+                <span class="text-muted small pt-2 ps-1">augmentation</span> --}}
               </div>
             </div>
           </div>
@@ -65,9 +65,9 @@
                 <i class="bi bi-activity"></i>
               </div>
               <div class="ps-3">
-                <h6>128</h6>
-                <span class="text-danger small pt-1 fw-bold">5%</span>
-                <span class="text-muted small pt-2 ps-1">diminution</span>
+                <h6>0</h6>
+                {{-- <span class="text-danger small pt-1 fw-bold">5%</span>
+                <span class="text-muted small pt-2 ps-1">diminution</span> --}}
               </div>
             </div>
           </div>
@@ -77,19 +77,8 @@
       <!-- Résumé des activités -->
       <div class="col-12">
         <div class="card top-selling overflow-auto">
-          <div class="filter">
-            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-              <li class="dropdown-header text-start">
-                <h6>Filtrer</h6>
-              </li>
-              <li><a class="dropdown-item" href="#">Aujourd'hui</a></li>
-              <li><a class="dropdown-item" href="#">Ce mois</a></li>
-              <li><a class="dropdown-item" href="#">Cette année</a></li>
-            </ul>
-          </div>
           <div class="card-body pb-0">
-            <h5 class="card-title">Résumé des activités <span>| Aujourd'hui</span></h5>
+            <h5 class="card-title">Résumé des activités</h5>
             <table class="table table-borderless">
               <thead>
                 <tr>

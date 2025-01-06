@@ -21,7 +21,7 @@
             </a>
           </li>
           <li>
-            <a href="./users-add.html">
+            <a href="#">
               <i class="bi bi-circle"></i><span>Ajouter un utilisateur</span>
             </a>
           </li>
@@ -57,12 +57,12 @@
       </li>
 
       <!-- Paramètres -->
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('paremetre')}}">
           <i class="bi bi-gear"></i>
           <span>Paramètres</span>
         </a>
-      </li>
+      </li> --}}
 
       <!-- Déconnexion -->
       <li class="nav-heading">
