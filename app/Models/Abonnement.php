@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Abonnement extends Model
 {
-
     protected $guarded = [];
 
     public function user()
