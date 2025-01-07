@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('pays');
             $table->string('telephone')->nullable();
             $table->string('sexe');
-            $table->string('dateAnniv')->nullable();
             $table->string('created_at')->nullable();
             $table->string('updated_at')->nullable();
             $table->string('user_id'); // Définit 'user_id' comme string

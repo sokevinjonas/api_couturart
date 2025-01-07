@@ -49,20 +49,20 @@
       </li>
 
       <!-- Statistiques -->
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="./statistics.html">
           <i class="bi bi-bar-chart"></i>
           <span>Statistiques</span>
         </a>
-      </li>
+      </li> --}}
 
       <!-- Paramètres -->
-      {{-- <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('paremetre')}}">
           <i class="bi bi-gear"></i>
           <span>Paramètres</span>
         </a>
-      </li> --}}
+      </li>
 
       <!-- Déconnexion -->
       <li class="nav-heading">
