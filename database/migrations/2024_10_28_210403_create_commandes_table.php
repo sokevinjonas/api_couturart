@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('user_id');
 
             // Définition de la clé étrangère
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            // $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
