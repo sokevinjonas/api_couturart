@@ -11,7 +11,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::middleware(['admin'])->group(function () {
+Route::middleware(['auth.session'])->group(function () {
 
     Route::post('logout', [AuthAdminController::class, 'logout'])->name('logout');
 
@@ -22,7 +22,7 @@ Route::get('/', function () {
     Route::get('create-licence', [LicenceController::class, 'create'])->name('licence.create');
     Route::post('store_licence', [LicenceController::class, 'store'])->name('licence.store');
     Route::post('generer_new_licence', [LicenceController::class, 'newLicence'])->name('licence.new_licence');
-// });
+});
 // SettingController
 
 // Route de connexion (accessible sans authentification)
