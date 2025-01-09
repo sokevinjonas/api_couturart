@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('created_at')->nullable();
             $table->string('updated_at')->nullable();
 
+            // $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

@@ -44,24 +44,16 @@ class SynchronisationController extends Controller
 
         try {
             if ($user === Auth::user()->id) {
-                if ($model::where('id', $data['id'])->exists()) {
-                    // Mettre à jour l'enregistrement existant
-                    $record = $model::where('id', $data['id'])->update($data);
-                    return response()->json([
-                        'success' => true,
-                        'data' => $record,
-                        'message' => "{$entity} mis à jour avec succès"
-                    ], 200);
-                } else {
-                    // Créer un nouvel enregistrement
-                    $record = $model::create($data);
-                    return response()->json([
-                        'success' => true,
-                        'data' => $record,
-                        'message' => "{$entity} créé avec succès"
-                    ], 201);
-                }
+               
+                // Créer un nouvel enregistrement
+                $record = $model::create($data);
+                return response()->json([
+                    'success' => true,
+                    'data' => $record,
+                    'message' => "{$entity} créé avec succès"
+                ], 201);
             }
+            
         } catch (Exception $e) {
             return response()->json([
                 'error' => 'Échec de la création de l\'enregistrement',
