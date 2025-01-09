@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make("Mrlarson@1217"),
             'telephone' => "56785580",
             'pays' => "+226",
-            'telephone' => "56785580",
             'role' => 'admin'
         ]);
     }

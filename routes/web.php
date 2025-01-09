@@ -11,7 +11,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth.session'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 
     Route::post('logout', [AuthAdminController::class, 'logout'])->name('logout');
 
