@@ -8,7 +8,7 @@ use App\Http\Controllers\panel\DashboardController;
 use App\Http\Controllers\panel\UtilisateurController;
 
 Route::get('/', function () {
-    return "error 404";
+    return view('welcome');
 });
 
 Route::middleware(['auth'])->group(function () {
