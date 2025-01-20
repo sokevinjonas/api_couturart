@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('sms_management', function (Blueprint $table) {
             $table->id();
             $table->foreignId('abonnement_id')->constrained('abonnements')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Ajout de user_id
+            $table->string('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('total_sms_inclus')->default(0); // total de sms 
             $table->integer('sms_utilises')->default(0); // on compte le nombre de sms envoyer
             $table->timestamps();

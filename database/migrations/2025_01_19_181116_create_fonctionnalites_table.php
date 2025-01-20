@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('fonctionnalites', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->boolean('cacher_chiffres_affaires')->default(false);
             $table->boolean('activer_sms')->default(false);
             $table->enum('mode_sms', ['auto', 'manuel'])->nullable();
