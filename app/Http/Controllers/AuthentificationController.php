@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Fonctionnalite;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -60,7 +61,26 @@ class AuthentificationController extends Controller
 
         $user = User::create($userData);
 
+        // Création de la fonctionnalité par défaut pour cet utilisateur
+        $fonctionnaliteData = [
+            'user_id' => $user->id,
+            'cacher_chiffres_affaires' => false,
+            'activer_sms' => false, 
+            'mode_sms' => 'manuel', 
+            'couture_mixte' => true, 
+            'type_couture' => 'mixte', 
+            'messages' => json_encode([
+                'nouvelleCommande' => 'Votre commande a bien été enregistrée. Merci de nous faire confiance !',
+                'avanceVersee' => 'Nous avons bien reçu votre avance. Votre commande est en cours de traitement.',
+                'commandePrete' => 'Votre commande est prête. Merci de venir la récupérer dès que possible.',
+                'retardRecuperation' => 'Votre commande est prête depuis plus de 3 jours. Merci de venir la récupérer rapidement.',
+            ]), // Messages par défaut
+        ];
+
+        
         $token = $user->createToken('auth_token')->plainTextToken;
+        // Créer la fonctionnalité pour cet utilisateur
+        Fonctionnalite::create($fonctionnaliteData);
 
         return response()->json([
             'message' => 'Utilisateur créé avec succès',

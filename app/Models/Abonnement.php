@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Licence;
+use App\Models\SmsManagement;
 use Illuminate\Database\Eloquent\Model;
 
 class Abonnement extends Model
@@ -18,5 +19,9 @@ class Abonnement extends Model
     public function licence()
     {
         return $this->belongsTo(Licence::class);
+    }
+    public function sms_management()
+    {
+        return $this->hasOne(SmsManagement::class, 'abonnement_id');
     }
 }

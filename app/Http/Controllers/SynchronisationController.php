@@ -12,6 +12,8 @@ use App\Models\Abonnement;
 use App\Models\Measurement;
 use App\Models\MesureClient;
 use Illuminate\Http\Request;
+use App\Models\SmsManagement;
+use App\Models\Fonctionnalite;
 use Illuminate\Support\Facades\Auth;
 
 class SynchronisationController extends Controller
@@ -214,6 +216,8 @@ class SynchronisationController extends Controller
             'subscription' => Abonnement::class,
             'caisses' => Caisse::class,
             'users' => User::class,
+            'sms_management' => SmsManagement::class,
+            'fonctionnalites' => Fonctionnalite::class,
             default => null, // Si l'entité n'est pas trouvée
         };
     }
