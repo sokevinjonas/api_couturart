@@ -31,13 +31,13 @@
       <!-- Gestion des licences -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#licenses-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-key"></i><span>Licences</span>
+          <i class="bi bi-key"></i><span>Licences & SMS</span>
           <i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="licenses-nav" class="nav-content collapse">
           <li>
             <a href="{{route('licence.create')}}">
-              <i class="bi bi-circle"></i><span>Générer une licence</span>
+              <i class="bi bi-circle"></i><span>Générer une licence / SMS</span>
             </a>
           </li>
           <li>

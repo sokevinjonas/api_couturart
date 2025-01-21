@@ -9,9 +9,8 @@
   <title>@yield('title', "Admin de Couturart")</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
   <!-- Favicons -->
-  <link href="panel/assets/img/favicon.png" rel="icon">
+  <link href="{{asset('assets/images/icon.jpeg')}}" rel="icon">
   <link href="panel/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
