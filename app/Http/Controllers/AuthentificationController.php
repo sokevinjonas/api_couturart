@@ -78,7 +78,7 @@ class AuthentificationController extends Controller
         
         $token = $user->createToken('auth_token')->plainTextToken;
         // Créer la fonctionnalité pour cet utilisateur
-        // Fonctionnalite::create($fonctionnaliteData);
+        Fonctionnalite::create($fonctionnaliteData);
 
         return response()->json([
             'message' => 'Utilisateur créé avec succès',
