@@ -35,7 +35,7 @@ class FonctionnaliteController extends Controller
             'messages.retardRecuperation' => 'required|string', 
         ]);
     
-        // Récupérer l'utilisateur authentifié
+        // Récupérer l'utilisateur authentifie
         $userId = auth()->id();
     
         // Trouver les paramètres existants de l'utilisateur
