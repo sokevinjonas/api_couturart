@@ -27,8 +27,7 @@ class FonctionnaliteController extends Controller
             'cacher_chiffres_affaires' => 'required|boolean', 
             'activer_sms' => 'required|boolean', 
             'mode_sms' => 'required|in:auto,manuel', 
-            'couture_mixte' => 'required|boolean', 
-            'type_couture' => 'required|in:homme,femme,mixte', 
+            'user_id' => 'required|string',
             'messages' => 'required|array', 
             'messages.nouvelleCommande' => 'required|string', 
             'messages.avanceVersee' => 'required|string', 
@@ -44,18 +43,21 @@ class FonctionnaliteController extends Controller
     
         // Si aucune fonctionnalité n'existe, on retourne une erreur
         if (!$fonctionnalite) {
+            // Convertir les messages en JSON avant la création
+
+            $validatedData['messages'] = json_encode($validatedData['messages']);
+            $newF = Fonctionnalite::create($validatedData);
             return response()->json([
-                'success' => false,
-                'message' => 'Aucune fonctionnalité trouvée pour cet utilisateur.',
-            ], 404);
+                'success' => true,
+                'data' => $newF,
+                'message' => 'Paramètres creer avec succès',
+            ], 200);
         }
     
         // Mettre à jour les champs uniquement si des données sont présentes dans la requête
         $fonctionnalite->cacher_chiffres_affaires = $validatedData['cacher_chiffres_affaires'];
         $fonctionnalite->activer_sms = $validatedData['activer_sms'];
         $fonctionnalite->mode_sms = $validatedData['mode_sms'];
-        $fonctionnalite->couture_mixte = $validatedData['couture_mixte'];
-        $fonctionnalite->type_couture = $validatedData['type_couture'];
     
         // Mise à jour des messages
         $fonctionnalite->messages = json_encode($validatedData['messages']);

@@ -18,8 +18,6 @@ return new class extends Migration
             $table->boolean('cacher_chiffres_affaires')->default(false);
             $table->boolean('activer_sms')->default(false);
             $table->enum('mode_sms', ['auto', 'manuel'])->nullable();
-            $table->boolean('couture_mixte')->default(false);
-            $table->enum('type_couture', ['homme', 'femme', 'mixte'])->nullable();
             $table->json('messages')->default(json_encode([
                 'nouvelleCommande' => 'Votre commande a bien été enregistrée. Merci de nous faire confiance !',
                 'avanceVersee' => 'Nous avons bien reçu votre avance. Votre commande est en cours de traitement.',
