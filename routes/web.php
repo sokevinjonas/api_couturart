@@ -21,6 +21,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('liste_licence', [LicenceController::class, 'index'])->name('licence.index');
     Route::get('create-licence', [LicenceController::class, 'create'])->name('licence.create');
     Route::post('store_licence', [LicenceController::class, 'store'])->name('licence.store');
+    // Route::put('update_licence/{id}', [LicenceController::class, 'update'])->name('licence.update');
+    Route::put('update_licence/{licence}', [LicenceController::class, 'update'])->name('licence.update');
+
     Route::post('generer_new_licence', [LicenceController::class, 'newLicence'])->name('licence.new_licence');
 });
 // SettingController

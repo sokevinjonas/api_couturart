@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\panel;
 
+use Exception;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Licence;
@@ -38,7 +39,7 @@ class LicenceController extends Controller
     {
         // Validation des données
         $request->validate([
-            'plan' => 'required|string|max:255',
+            'plan' => 'required|string|max:50',
             'prix_mensuel' => 'required|numeric|min:0',
             'description' => 'nullable|string',
         ]);
@@ -126,4 +127,24 @@ class LicenceController extends Controller
         }
     }
 
+    public function update(Request $request, Licence $licence )
+    {
+        try {
+            // $licence = Licence::findOrFail($id);
+            // dd($licence);
+            $validated = $request->validate([
+                'plan' => 'required|string|max:50|unique:licences,plan,' . $licence->id,
+                'prix_mensuel' => 'required|numeric|min:0',
+                'description' => 'nullable|string'
+            ]);
+            
+            $licence->update($validated);
+    
+            return redirect()->back()
+                ->with('success', 'Forfait modifié avec succès');
+        } catch (Exception $e) {
+            return redirect()->back()
+                ->with('error', 'Erreur lors de la modification: ' . $e->getMessage());
+        }
+    }
 }

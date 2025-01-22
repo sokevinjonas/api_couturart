@@ -73,98 +73,109 @@ class FonctionnaliteController extends Controller
         ], 200);
     }
 
-    public function sendSms(Request $request): string
-    {
-        // Valider les données envoyées par l'utilisateur
-        $validated = $request->validate([
-            'message' => 'required|string',
-            'nameClient' => 'required|string',
-            'number' => 'required|string',
-        ]);
+    public function sendSms(Request $request)
+{
+    $validated = $request->validate([
+        'nameClient' => 'required|string',
+        'message' => 'required|string',
+        'number' => 'required|string',
+    ]);
 
-        $message = $validated['message'];
-        $nameClient = $validated['nameClient'];
-        $number = $validated['number'];
-
-        try {    
-            
-            $abonnement = Abonnement::with('licence')->where('user_id', auth()->user()->id) 
+    try {    
+        // Vérification du plan
+        $abonnement = Abonnement::with('licence')
+            ->where('user_id', auth()->user()->id)
             ->first();
-            // dd($abonnement->licence);
-            if ($abonnement->licence->plan === 'Essentiel') {
-                return "Votre plan d'abonnement ne permet pas l'envoi de SMS.";
-            }            
             
-             // Vérification du crédit SMS
-            $smsManagement = SmsManagement::where('user_id', auth()->user()->id)->first();
-            // dd($smsManagement->sms_restants);
-            $sms_restants = $smsManagement->total_sms_inclus - $smsManagement->sms_utilises;
-            if ($sms_restants <= 0) {
-                return "Vous n'avez pas suffisamment de crédits SMS.";
-            }
-               
-               // Préparation des paramètres pour l'API
-            $apiUrl = "https://www.aqilas.com/api/v1/sms";
-            $authToken = 'd5431acf-3181-4bca-8cfe-28c8b5a8d8b4'; 
-            $from = "Couturart";
-            $payload = [
-                "from" => $from,
-                "text" => "$nameClient : $message",
-                "to" => [$number]
-            ];
-    
-            // Initialisation de cURL
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $apiUrl);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, [
-                "Content-Type: application/json",
-                "X-AUTH-TOKEN: $authToken"
-            ]);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    
-            // Envoi de la requête et récupération de la réponse
-            $response = curl_exec($ch);
-
-            // Vérification des erreurs cURL
-            if (curl_errno($ch)) {
-                throw new Exception(curl_error($ch));
-            }
-
-            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            curl_close($ch);
-
-             // Log du SMS envoyé
-            $smsLog = new SmsLog();
-            $smsLog->user_id = auth()->user()->id;
-            $smsLog->recipient_number = $number;
-            $smsLog->message = $message;
-            $smsLog->sent_at = now();
-
-            // Vérification du succès de la requête (HTTP 200-299)
-            if ($httpCode >= 200 && $httpCode < 300) {
-                // Décrémenter le crédit SMS
-                $smsManagement->total_sms_inclus -=1;
-                $smsManagement->sms_utilises +=1;
-                $smsLog->status = true;
-                $smsLog->save();
-                $smsManagement->save();
-
-                return "SMS envoyé avec succès.";
-            }else {
-                $smsLog->status = false;
-               $smsLog->error_message = "Erreur API SMS : Code HTTP $httpCode";
-               $smsLog->save();
-            }
-
-            throw new Exception("Erreur API SMS : Code HTTP $httpCode");
-        } catch (Exception $e) {
-            // Retourner l'erreur spécifique
-            Log::error("Failed to send SMS: " . $e->getMessage());
-            return $e->getMessage(); // Retourne le message d'erreur
+        if ($abonnement->licence->plan === 'Essentiel') {
+            return response()->json([
+                'success' => false,
+                'message' => "Votre plan d'abonnement ne permet pas l'envoi de SMS."
+            ], 403);
+        }            
+        
+        // Vérification des crédits SMS
+        $smsManagement = SmsManagement::where('user_id', auth()->user()->id)->first();
+        $sms_restants = $smsManagement->total_sms_inclus - $smsManagement->sms_utilises;
+        
+        if ($sms_restants <= 0) {
+            return response()->json([
+                'success' => false,
+                'message' => "Vous n'avez pas suffisamment de crédits SMS."
+            ], 403);
         }
+
+        // Préparation des données SMS
+        $smsContent = [
+            "from" => "Couturart",
+            "to" => [$validated['number']],
+            "text" => "Bonjour {$validated['nameClient']}! {$validated['message']}"
+        ];
+
+        // Configuration cURL selon la documentation
+        $ch = curl_init("https://www.aqilas.com/api/v1/sms");
+        $headers = [
+            'Content-Type: application/json',
+            'X-AUTH-TOKEN:' .env('API_AUTH_TOKEN')
+        ];
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($smsContent));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $json_response = curl_exec($ch);
+        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $response = json_decode($json_response, true);
+
+        // En cas d'erreur cURL
+        if (curl_errno($ch)) {
+            throw new Exception(curl_error($ch));
+        }
+
+        curl_close($ch);
+
+        // Création du log
+        $smsLog = new SmsLog();
+        $smsLog->user_id = auth()->user()->id;
+        $smsLog->recipient_number = $validated['number'];
+        $smsLog->message = $validated['message'];
+        $smsLog->sent_at = now();
+
+        // Traitement de la réponse
+        if ($status == 200 || $status == 201) {
+            // Mise à jour des crédits SMS
+            $smsManagement->total_sms_inclus -= 1;
+            $smsManagement->sms_utilises += 1;
+            $smsLog->status = true;
+            $smsLog->save();
+            $smsManagement->save();
+
+            return response()->json([
+                "success" => true,
+                "message" => "SMS envoyé avec succès",
+                "bulk_id" => $response['bulk_id'] ?? null
+            ]);
+        } else {
+            $smsLog->status = false;
+            $smsLog->error_message = $response['message'] ?? "Erreur API SMS : Code HTTP $status";
+            $smsLog->save();
+
+            return response()->json([
+                "success" => false,
+                "message" => $response['message'] ?? "Erreur lors de l'envoi du SMS",
+                "httpCode" => $status
+            ], $status);
+        }
+
+    } catch (Exception $e) {
+        Log::error("Failed to send SMS: " . $e->getMessage());
+        return response()->json([
+            "success" => false,
+            "message" => "Erreur interne lors de l'envoi du SMS : " . $e->getMessage()
+        ], 500);
     }
+}
     
 }
