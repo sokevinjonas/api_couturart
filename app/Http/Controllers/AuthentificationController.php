@@ -69,7 +69,7 @@ class AuthentificationController extends Controller
             'mode_sms' => 'manuel', 
             'messages' => json_encode([
                 'nouvelleCommande' => 'Votre commande a bien été enregistrée. Merci de nous faire confiance !',
-                'avanceVersee' => 'Nous avons bien reçu votre avance. Votre commande est en cours de traitement.',
+                'avanceVersee' => 'Nous avons bien reçu votre avance.',
                 'commandePrete' => 'Votre commande est prête. Merci de venir la récupérer dès que possible.',
                 'retardRecuperation' => 'Votre commande est prête depuis plus de 3 jours. Merci de venir la récupérer rapidement.',
             ]), // Messages par défaut
@@ -78,7 +78,7 @@ class AuthentificationController extends Controller
         
         $token = $user->createToken('auth_token')->plainTextToken;
         // Créer la fonctionnalité pour cet utilisateur
-        // Fonctionnalite::create($fonctionnaliteData);
+        Fonctionnalite::create($fonctionnaliteData);
 
         return response()->json([
             'message' => 'Utilisateur créé avec succès',
