@@ -245,7 +245,7 @@
                   <li><i class="fas fa-check"></i> Suivi financier détaillé</li>
                   <li><i class="fas fa-check"></i> Notifications SMS (100 sms gratuits)</li>
                   {{-- <li><i class="fas fa-check"></i> Rapports mensuels sur revenus et bénéfices</li> --}}
-                  <li><i class="fas fa-times text-danger"></i> Notifications SMS (option disponible)</li>
+                  {{-- <li><i class="fas fa-times text-danger"></i> Notifications SMS (option disponible)</li> --}}
                 </ul>
                 <a href="https://wa.me/22656785580?text=Bonjour,%20je%20souhaite%20m'abonner%20au%20plan%20Standard." class="btn btn-primary btn-lg">Choisir Standard</a>
               </div>
