@@ -188,11 +188,10 @@ class SynchronisationController extends Controller
 
             if ($model) {
                 // Récupérer les enregistrements pour chaque entité et les stocker
-                $data[$entity] = $model::where('user_id', $userId)->get();
-                 // Vérifier si le modèle est 'User' et récupérer l'utilisateur
-                if ($model === User::class) {
-                    $data['users'] = $model::where('id', $userId)->get();
-                }
+                 $data[$entity] = ($entity === 'users')
+                 ? $model::where('id', $userId)->get()
+                 : $model::where('user_id', $userId)->get();
+             
             } else {
                 // Si le modèle pour une entité n'existe pas, renvoyer une erreur
                 return response()->json(['error' => "L'entité '{$entity}' est introuvable"], 404);
