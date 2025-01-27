@@ -386,7 +386,7 @@
               <li><a href="#preview">Aperçu</a></li>
               <li><a href="#pricing">Tarifs</a></li>
               <li><a href="#testimonials">Témoignages</a></li>
-              <li><a href="#" onclick="confirmDownload(event, '{{ asset('version-app/couturart-v-4-1.apk') }}')">Télécharger le fichier apk</a></li>
+              <li><a href="#" onclick="confirmDownload(event, '{{ asset('version-app/couturart-v-4-6.apk') }}')">Télécharger le fichier apk</a></li>
             </ul>
           </div>
           <div class="col-md-4">
