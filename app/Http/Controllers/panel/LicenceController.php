@@ -56,76 +56,89 @@ class LicenceController extends Controller
     }
     public function newLicence(Request $request)
     {
-        // dd($request->all());
         $validatedData = $request->validate([
             'user_id' => 'required|exists:users,id',
             'plan' => 'required|exists:licences,id',
             'duration' => 'required|integer|min:1',
         ]);
-        // dd($validatedData);
+    
         $userId = $validatedData['user_id'];
         $plan = $validatedData['plan'];
-        $duration = filter_var($validatedData['duration'], FILTER_VALIDATE_INT);
-
+        $duration = (int)$validatedData['duration'];
+    
         // Vérifie si un abonnement existe déjà pour l'utilisateur
         $abonnement = Abonnement::where('user_id', $userId)->first();
+    
         if ($abonnement) {
-            $aboUpdate = SmsManagement::where('abonnement_id', $abonnement->id)->first();
             // Mise à jour de l'abonnement existant
             $abonnement->licence_id = $plan;
             $abonnement->duration = $duration;
             $abonnement->status = 'active';
-            $abonnement->starts_at = Carbon::now(); // Date du jour
+            $abonnement->starts_at = Carbon::now();
             $abonnement->ends_at = Carbon::now()->addMonths($duration);
             $abonnement->save();
-            
-            if ($abonnement->licence->plan === 'Standard') {
-                if ($abonnement->duration >=6) {
+    
+            // Gestion des SMS gratuits
+            if ($abonnement->licence && $abonnement->licence->plan === 'Standard') {
+                $aboUpdate = SmsManagement::firstOrCreate(
+                    ['abonnement_id' => $abonnement->id],
+                    ['user_id' => $userId, 'total_sms_inclus' => 0, 'sms_utilises' => 0]
+                );
+    
+                if ($duration >= 6 && $duration < 12) {
                     $aboUpdate->total_sms_inclus += 50;
-                }else if($abonnement->duration >=12)
-                {
+                } elseif ($duration >= 12) {
                     $aboUpdate->total_sms_inclus += 100;
                 }
                 $aboUpdate->save();
             }
-            return redirect()->back()->with('success', 'La licence a été mise à jour avec succès et vous beneficer de 100sms gratuit.');
+    
+            return redirect()->back()->with('success', 'La licence a été mise à jour avec succès.');
         } else {
             // Création d'un nouvel abonnement
-          $aboNew = Abonnement::create([
+            $licence = Licence::find($plan);
+            if (!$licence) {
+                return redirect()->back()->withErrors('Licence introuvable.');
+            }
+    
+            $aboNew = Abonnement::create([
                 'user_id' => $userId,
                 'licence_id' => $plan,
                 'duration' => $duration,
-                'amount' => Licence::find($plan)->prix_mensuel * $duration,
+                'amount' => $licence->prix_mensuel * $duration,
                 'status' => 'active',
-                'status' => 'active',
-                'starts_at' => Carbon::now(), // Date du jour
+                'starts_at' => Carbon::now(),
                 'ends_at' => Carbon::now()->addMonths($duration),
             ]);
-
-            if ($aboNew->licence->plan === 'Standard') {
-                // Si la durée est entre 6 et 11 inclus
-                if ($aboNew->duration >= 6 && $aboNew->duration < 12) {
-                    $total = 50;
+    
+            // Gestion des SMS gratuits
+            if ($licence->plan === 'Standard') {
+                $totalSms = 0;
+                if ($duration >= 6 && $duration < 12) {
+                    $totalSms = 50;
+                } elseif ($duration >= 12) {
+                    $totalSms = 100;
                 }
-                // Si la durée est supérieure ou égale à 12
-                elseif ($aboNew->duration >= 12) {
-                    $total = 100;
-                }
-            } elseif ($aboNew->licence->plan === 'Essentiel') {
-                $total = 0;
+    
+                SmsManagement::create([
+                    'abonnement_id' => $aboNew->id,
+                    'user_id' => $userId,
+                    'total_sms_inclus' => $totalSms,
+                    'sms_utilises' => 0,
+                ]);
+            } else {
+                SmsManagement::create([
+                    'abonnement_id' => $aboNew->id,
+                    'user_id' => $userId,
+                    'total_sms_inclus' => 0,
+                    'sms_utilises' => 0,
+                ]);
             }
-
-            SmsManagement::create([
-                'abonnement_id' => $aboNew->id,
-                'user_id' => $userId,
-                'total_sms_inclus' => $total,
-                'sms_utilises' => 0,
-            ]);
-
-
-            return redirect()->back()->with('success', 'La licence a été créée avec succès et vous beneficer de 100 sms gratuit.');
+    
+            return redirect()->back()->with('success', 'La licence a été créée avec succès.');
         }
     }
+    
 
     public function update(Request $request, Licence $licence )
     {

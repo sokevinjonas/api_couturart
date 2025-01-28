@@ -16,7 +16,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('logout', [AuthAdminController::class, 'logout'])->name('logout');
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('utilisateurs', [UtilisateurController::class, 'index'])->name('utilisateurs');
+    Route::get('utilisateurs', [UtilisateurController::class, 'index'])->name('users.index');
     Route::get('paremetre', [SettingController::class, 'index'])->name('paremetre');
     Route::get('liste_licence', [LicenceController::class, 'index'])->name('licence.index');
     Route::get('create-licence', [LicenceController::class, 'create'])->name('licence.create');

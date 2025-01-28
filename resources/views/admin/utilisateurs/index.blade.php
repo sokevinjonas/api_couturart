@@ -13,7 +13,7 @@
 @section('content')
 <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Liste des articles</h5>
+          <h5 class="card-title">Liste des utilisateurs</h5>
           <!-- Table pour afficher les articles -->
           <table class="table table-bordered datatable">
             <thead>
