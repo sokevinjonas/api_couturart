@@ -391,7 +391,7 @@
           </div>
           <div class="col-md-4">
             <h5>Contactez-nous</h5>
-            <p>Email: sokevin7@gamil.com<br />Tél: +226 56 78 55 80 /  +226 52 64 56 34</p>
+            <p>Email: sokevin7@gmail.com<br />Tél: +226 56 78 55 80 /  +226 52 64 56 34</p>
             <div class="social-icons mt-3">
               <a href="https://www.facebook.com/profile.php?id=61568132046099&mibextid=ZbWKwL" target="_blank"  class="me-2"><i class="fab fa-facebook-f"></i></a>
               <a href="https://www.tiktok.com/@couturart?_t=ZN-8slOK3fADri&_r=1" target="_blank"  class="me-2"><i class="fab fa-tiktok"></i></a>
