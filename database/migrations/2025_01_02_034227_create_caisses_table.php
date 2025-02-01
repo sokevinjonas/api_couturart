@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('caisses', function (Blueprint $table) {
             $table->string('id');
-            $table->enum('operation', ['entrer', 'sortie']);
+            $table->enum('operation', ['entrer', 'sortie', 'annuler']); //add annuler
             $table->integer('amount');
             $table->string('reason');
             $table->string('user_id');
