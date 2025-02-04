@@ -220,7 +220,7 @@
               <div class="pricing-card">
                 <h3>Essentiel</h3>
                 <div class="pricing-options">
-                  <p class="price">24 000 FCFA<span>/an</span></p>
+                  <p class="price">30 000 FCFA<span>/an</span></p>
                 </div>
                 <p class="text-muted mb-4">Idéal pour une gestion simple et efficace</p>
                 <ul class="feature-list">
@@ -242,7 +242,7 @@
                 <div class="popular-badge">Plus populaire</div>
                 <h3>Standard</h3>
                 <div class="pricing-options">
-                  <p class="price">45 000 FCFA<span>/an</span></p>
+                  <p class="price">60 000 FCFA<span>/an</span></p>
                 </div>
                 <p class="text-muted mb-4">Parfait pour une gestion avancée et sécurisée</p>
                 <ul class="feature-list">

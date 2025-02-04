@@ -17,6 +17,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('utilisateurs', [UtilisateurController::class, 'index'])->name('users.index');
+    Route::get('utilisateurs/show', [UtilisateurController::class, 'show'])->name('users.show');
     Route::get('paremetre', [SettingController::class, 'index'])->name('paremetre');
     Route::get('liste_licence', [LicenceController::class, 'index'])->name('licence.index');
     Route::get('create-licence', [LicenceController::class, 'create'])->name('licence.create');

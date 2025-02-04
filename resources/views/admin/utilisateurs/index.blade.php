@@ -14,6 +14,7 @@
 <div class="card">
         <div class="card-body">
           <h5 class="card-title">Liste des utilisateurs</h5>
+          {{ Hash::make('12345678') }}
           <!-- Table pour afficher les articles -->
           <table class="table table-bordered datatable">
             <thead>
@@ -27,7 +28,7 @@
             <tbody>
               @forelse ($users as $user )
               <tr>
-                <td>{{  $user->nom}}</td>
+                <td><a href="{{  route('users.show', $user->id)}}">{{  $user->nom}}</a></td>
                 <td>{{ $user->etablissement  }}</td>
                 <td>{{ $user->pays }} {{ $user->telephone  }}</td>
                 <td>{{ \Carbon\Carbon::parse($user->created_at)->format('d/m/Y') }}</td>

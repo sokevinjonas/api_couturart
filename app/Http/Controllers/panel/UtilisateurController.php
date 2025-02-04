@@ -13,4 +13,9 @@ class UtilisateurController extends Controller
         $users = User::where('role', 'proprietaire')->latest('created_at')->get();
         return view('admin.utilisateurs.index', compact('users'));
     }
+
+    public function show(User $user)
+    {
+        return view('admin.utilisateurs.show', compact('user'));
+    }
 }
