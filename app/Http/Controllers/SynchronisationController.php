@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use App\Models\Sale;
 use App\Models\User;
 use App\Models\Caisse;
 use App\Models\Client;
+use App\Models\Article;
 use App\Models\Category;
 use App\Models\Commande;
 use App\Models\Abonnement;
@@ -221,6 +223,8 @@ class SynchronisationController extends Controller
             'users' => User::class,
             'sms_management' => SmsManagement::class,
             'fonctionnalites' => Fonctionnalite::class,
+            'articles' => Article::class,
+            'sales' => Sale::class,
             default => null, // Si l'entité n'est pas trouvée
         };
     }
@@ -241,6 +245,9 @@ class SynchronisationController extends Controller
         // Traitement spécial pour les mesures des clients, vérifier si 'mesures' est présent
         if ($entity === 'mesures_clients' && array_key_exists('mesures', $data)) {
             $data['mesures'] = json_encode($data['mesures']); // Encoder en JSON si 'mesures' existe
+        }
+        if ($entity === 'sales' && array_key_exists('items', $data)) {
+            $data['items'] = json_encode($data['items']);
         }
 
         return $data;
