@@ -14,7 +14,6 @@
 <div class="card">
         <div class="card-body">
           <h5 class="card-title">Liste des utilisateurs</h5>
-          {{ Hash::make('12345678') }}
           <!-- Table pour afficher les articles -->
           <table class="table table-bordered datatable">
             <thead>

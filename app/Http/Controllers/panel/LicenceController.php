@@ -10,12 +10,13 @@ use App\Models\Abonnement;
 use Illuminate\Http\Request;
 use App\Models\SmsManagement;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class LicenceController extends Controller
 {
     public function index()
     {
-        $abonnement = Abonnement::with(['user', 'sms_management'])->get();
+        $abonnement = Abonnement::with(['user', 'sms_management'])->latest('created_at')->get();
         return view('admin.licences.index', compact('abonnement'));
     }
     public function create(Request $request)
@@ -23,8 +24,8 @@ class LicenceController extends Controller
          // Recherche d'utilisateurs si une requête est faite
          $search = $request->input('search');
 
-         $users = User::where('id', '!=', auth()->user()->id)->when($search, function ($query) use ($search) {
-             $query->where('nom', 'LIKE', "%{$search}%")
+         $users = User::where('id', '!=', Auth::user()->id)->when($search, function ($query) use ($search) {
+             $query->where('etablissement', 'LIKE', "%{$search}%")
              ->orWhere('id', 'LIKE', "%{$search}%")
              ->orWhere('telephone', 'LIKE', "%{$search}%");
             })

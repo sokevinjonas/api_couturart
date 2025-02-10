@@ -11,7 +11,7 @@
   <meta content="" name="keywords">
   <!-- Favicons -->
   <link href="{{asset('assets/images/icon.jpeg')}}" rel="icon">
-  <link href="panel/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{asset('panel/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -20,16 +20,17 @@
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="panel/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="panel/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="panel/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="panel/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="panel/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="panel/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="panel/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="{{asset('panel/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('panel/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{asset('panel/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{asset('panel/assets/vendor/quill/quill.snow.css')}}" rel="stylesheet">
+  <link href="{{asset('panel/assets/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
+  <link href="{{asset('panel/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+  <link href="{{asset('panel/assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="panel/assets/css/style.css" rel="stylesheet">
+  {{-- panel/assets/css/style.css --}}
+  <link href="{{asset('panel/assets/css/style.css')}}" rel="stylesheet">
 
 </head>
 
@@ -71,17 +72,17 @@
       class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="panel/assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="panel/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="panel/assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="panel/assets/vendor/echarts/echarts.min.js"></script>
-  <script src="panel/assets/vendor/quill/quill.js"></script>
-  <script src="panel/assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="panel/assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="panel/assets/vendor/php-email-form/validate.js"></script>
+  <script src="{{asset('panel/assets/vendor/apexcharts/apexcharts.min.js')}}"></script>
+  <script src="{{asset('panel/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('panel/assets/vendor/chart.js/chart.umd.js')}}"></script>
+  <script src="{{asset('panel/assets/vendor/echarts/echarts.min.js')}}"></script>
+  <script src="{{asset('panel/assets/vendor/quill/quill.js')}}"></script>
+  <script src="{{asset('panel/assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
+  <script src="{{asset('panel/assets/vendor/tinymce/tinymce.min.js')}}"></script>
+  <script src="{{asset('panel/assets/vendor/php-email-form/validate.js')}}"></script>
 
   <!-- Template Main JS File -->
-  <script src="panel/assets/js/main.js"></script>
+  <script src="{{asset('panel/assets/js/main.js')}}"></script>
 
 </body>
 
