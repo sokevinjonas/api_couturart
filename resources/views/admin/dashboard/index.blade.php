@@ -59,13 +59,15 @@
       <div class="col-xxl-4 col-xl-12">
         <div class="card info-card customers-card">
           <div class="card-body">
-            <h5 class="card-title">Actions récentes</h5>
+            <h5 class="card-title">Abonnements Activés</h5>
             <div class="d-flex align-items-center">
               <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                <i class="bi bi-activity"></i>
+                <i class="bi bi-patch-check-fill"></i>
               </div>
               <div class="ps-3">
-                <h6>0</h6>
+                <h6>
+                  {{ $users_active }}
+                </h6>
                 {{-- <span class="text-danger small pt-1 fw-bold">5%</span>
                 <span class="text-muted small pt-2 ps-1">diminution</span> --}}
               </div>

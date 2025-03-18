@@ -14,6 +14,8 @@ class DashboardController extends Controller
     {
         $user = User::where('role', 'proprietaire')->latest()->get();
         $abonnement = Abonnement::where('status', 'active')->latest()->get();
-        return view('admin.dashboard.index', compact('user', 'abonnement'));
+        $users_active = $abonnement->where('ends_at', '>', now())->count();
+        // dd($users_active);
+        return view('admin.dashboard.index', compact('user', 'abonnement', 'users_active'));
     }
 }

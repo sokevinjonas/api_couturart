@@ -9,7 +9,7 @@ use App\Http\Controllers\panel\UtilisateurController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::middleware(['auth'])->group(function () {
 
