@@ -28,7 +28,7 @@ class LicenceController extends Controller
              $query->where('etablissement', 'LIKE', "%{$search}%")
              ->orWhere('id', 'LIKE', "%{$search}%")
              ->orWhere('telephone', 'LIKE', "%{$search}%");
-            })
+            })->latest('created_at')
             ->get();
             // dd($users);
 
