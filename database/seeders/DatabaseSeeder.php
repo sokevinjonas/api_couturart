@@ -37,9 +37,9 @@ class DatabaseSeeder extends Seeder
 
 
 
-        $this->call([
-            LicenceSeeder::class,
-        ]);
+        // $this->call([
+        //     LicenceSeeder::class,
+        // ]);
     }
     
 }
