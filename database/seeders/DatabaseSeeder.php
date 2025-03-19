@@ -26,14 +26,14 @@ class DatabaseSeeder extends Seeder
         //     'role' => 'admin'
         // ]);
 
-         User::factory()->create([
-            'nom' => 'Inoussa GARANE',
-            'email' => 'Inoussagarane0@gmail.com',
-            'password' => Hash::make("primo@#2025"),
-            'telephone' => "54493091",
-            'pays' => "+226",
-            'role' => 'admin'
-        ]);
+        //  User::factory()->create([
+        //     'nom' => 'Inoussa GARANE',
+        //     'email' => 'Inoussagarane0@gmail.com',
+        //     'password' => Hash::make("primo@#2025"),
+        //     'telephone' => "54493091",
+        //     'pays' => "+226",
+        //     'role' => 'admin'
+        // ]);
 
 
 
