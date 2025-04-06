@@ -42,8 +42,8 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img src="{{asset('assets/images/icon.jpeg')}}" alt="Couturart Logo" class="logo" />
-          Couturart
+          <img src="{{asset('assets/images/icon.jpg')}}" alt="Couturart Logo" class="logo" />
+          Couturart - Gestion de couture
         </a>
         <button
           class="navbar-toggler"
@@ -79,15 +79,14 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6">
-            <h1>Digitalisez la gestion de votre atelier de couture</h1>
+            <h1>Modernisez votre atelier de couture</h1>
             <p class="lead">
-              Avec <strong>Couturart</strong>, simplifiez et modernisez votre activité grâce à une application intuitive et performante.
+              Avec <strong>Couturart</strong>, adoptez un logiciel de gestion moderne pour votre activité de couture. Gérez commandes, mesures et finances en toute simplicité.
             </p>
-
-            <a href="#download" class="btn btn-primary btn-lg mt-3"
-              >Essai gratuit de 30 jours</a
-            >
+            <a href="#download" class="btn btn-primary btn-lg mt-3">Essai gratuit de 30 jours</a>
           </div>
+          
+          
           <div class="col-lg-6 mt-3">
             <iframe width="350" height="250" 
                 src="https://www.youtube.com/embed/wqkBO4f6lVk" 
@@ -105,78 +104,79 @@
 
     <section id="features" class="features">
       <div class="container">
-        <h2 class="text-center mb-5">Fonctionnalités clés</h2>
+        <h2 class="text-center mb-5">Transformez votre atelier en référence d'excellence</h2>
         <div class="row g-4">
+    
+          <!-- Carte 1 -->
           <div class="col-md-4">
             <div class="feature-card">
               <i class="fas fa-bolt feature-icon"></i>
-              <h3>Gain de temps considérable</h3>
+              <h3>Boostez votre performance</h3>
               <p>
-                Fini les cahiers et les calculs manuels ! Gérez vos clients et
-                commandes 3 fois plus rapidement.
+                Libérez-vous des cahiers de notes et des méthodes dépassées. Avec CouturArt, vous gagnez un temps précieux pour créer, innover et atteindre de nouveaux sommets.
               </p>
             </div>
           </div>
-
+    
+          <!-- Carte 2 -->
           <div class="col-md-4">
             <div class="feature-card">
               <i class="fas fa-cloud feature-icon"></i>
-              <h3>Données sécurisées</h3>
+              <h3>Valorisez votre expertise</h3>
               <p>
-                Vos données sont sauvegardées automatiquement dans le cloud.
-                Plus de risque de perte même si votre téléphone tombe en panne !
+                Vos données, c'est votre savoir-faire. CouturArt sécurise chaque information, vous permettant de briller et de démontrer votre professionnalisme sans compromis.
               </p>
             </div>
           </div>
-
+    
+          <!-- Carte 3 -->
           <div class="col-md-4">
             <div class="feature-card">
               <i class="fas fa-money-bill-wave feature-icon"></i>
-              <h3>Meilleur suivi financier</h3>
+              <h3>Maîtrisez votre succès</h3>
               <p>
-                Suivez facilement vos revenus, dépenses et bénéfices. Identifiez
-                vos modèles les plus rentables en un coup d'œil.
+                Prenez le contrôle de vos finances et transformez votre atelier en une véritable machine à profits. Suivez vos revenus et dépenses pour prendre des décisions qui boostent votre rentabilité.
               </p>
             </div>
           </div>
-
+    
+          <!-- Carte 4 -->
           <div class="col-md-4">
             <div class="feature-card">
               <i class="fas fa-mobile-alt feature-icon"></i>
-              <h3>Travaillez hors connexion</h3>
+              <h3>Opérez en toute liberté</h3>
               <p>
-                L'application fonctionne même sans internet ! Vos données se
-                synchronisent automatiquement dès que vous retrouvez une
-                connexion.
+                Ne laissez jamais une connexion limiter votre ambition. Utilisez CouturArt hors ligne et restez maître de votre atelier, où que vous soyez, quand vous le souhaitez.
               </p>
             </div>
           </div>
-
+    
+          <!-- Carte 5 -->
           <div class="col-md-4">
             <div class="feature-card">
               <i class="fas fa-users feature-icon"></i>
-              <h3>Fidélisez vos clients</h3>
+              <h3>Fidélisez et impressionnez</h3>
               <p>
-                Gardez un historique détaillé de chaque client et de leurs
-                préférences. Informez-les automatiquement quand leur commande
-                est prête !
+                Offrez à vos clients une expérience inoubliable. Grâce à un suivi personnalisé et un historique complet, montrez-leur à quel point vous valorisez leur confiance et faites d’eux vos ambassadeurs.
               </p>
             </div>
           </div>
-
+    
+          <!-- Carte 6 -->
           <div class="col-md-4">
             <div class="feature-card">
               <i class="fas fa-star feature-icon"></i>
-              <h3>Service client local</h3>
+              <h3>Accompagnement sur-mesure</h3>
               <p>
-                Une équipe 100% Burkinabè à votre écoute pour vous accompagner
-                et vous former à l'utilisation de l'application.
+                Rejoignez l'élite des professionnels du secteur. Notre équipe locale 100% Burkinabè est à vos côtés pour vous former, vous conseiller et faire de votre atelier un véritable symbole d’excellence.
               </p>
             </div>
           </div>
+    
         </div>
       </div>
     </section>
+    
 
     <section id="preview" class="preview">
         <div class="container">
@@ -204,7 +204,7 @@
                 alt="Écran pour la synchronisation"
                 class="img-fluid rounded-3 shadow"
               />
-              <p class="text-center mt-3">Page Caisse/Dépenses</p>
+              <p class="text-center mt-3">Page Rdv/Commandes</p>
             </div>
           </div>
         </div>
@@ -394,7 +394,7 @@
               <li><a href="#preview">Aperçu</a></li>
               <li><a href="#pricing">Tarifs</a></li>
               <li><a href="#testimonials">Témoignages</a></li>
-              <li><a href="#" onclick="confirmDownload(event, '{{ asset('version-app/couturart-v-4-6.apk') }}')">Télécharger le fichier apk</a></li>
+              <li><a href="#" onclick="confirmDownload(event, '{{ asset('version-app/couturart-v-4-6.apk') }}')">.</a></li>
             </ul>
           </div>
           <div class="col-md-4">
@@ -402,7 +402,7 @@
             <p>Email: sokevin7@gmail.com<br />Tél: +226 56 78 55 80 /  +226 52 64 56 34</p>
             <div class="social-icons mt-3">
               <a href="https://www.facebook.com/profile.php?id=61568132046099&mibextid=ZbWKwL" target="_blank"  class="me-2"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.tiktok.com/@couturart?_t=ZN-8slOK3fADri&_r=1" target="_blank"  class="me-2"><i class="fab fa-tiktok"></i></a>
+              <a href="https://www.tiktok.com/@couturartofficiel" target="_blank"  class="me-2"><i class="fab fa-tiktok"></i></a>
             </div>
           </div>
         </div>

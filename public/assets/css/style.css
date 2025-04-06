@@ -1,7 +1,7 @@
 /* styles.css */
 :root {
-    --primary-color: #f26d7d;
-    --secondary-color: #3cb878;
+    --primary-color: #251d75;
+    --secondary-color: #c9536d;
     --background-color: #f8f9fa;
     --text-color: #333;
     --light-gray: #e9ecef;
@@ -377,6 +377,9 @@ body {
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 2.5rem;
+    }
+    .navbar-brand img {
+        max-height: 18px;
     }
 
     .price-card.popular {
