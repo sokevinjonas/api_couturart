@@ -15,7 +15,7 @@
         <!-- Open Graph (OG) pour l'intégration sur les réseaux sociaux -->
         <meta property="og:title" content="Couturart - Simplifiez et modernisez votre activité grâce à une application intuitive et performante" />
         <meta property="og:description" content="Couturart est une application intuitive et performante pour moderniser votre activité. Découvrez des fonctionnalités simplifiées pour une gestion optimale de votre entreprise." />
-        <meta property="og:image" content="{{asset('assets/images/icon.jpeg')}}" /> <!-- Remplace par l'URL de ton image pour la carte -->
+        <meta property="og:image" content="{{asset('assets/images/icon.jpg')}}" /> <!-- Remplace par l'URL de ton image pour la carte -->
         <meta property="og:url" content="https://couturart.eliteero.com/" /> <!-- Remplace par l'URL de ton site -->
         <meta property="og:type" content="website" />
 
@@ -23,7 +23,7 @@
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Couturart - Simplifiez et modernisez votre activité grâce à une application intuitive et performante" />
         <meta name="twitter:description" content="Couturart est une application intuitive et performante pour moderniser votre activité. Découvrez des fonctionnalités simplifiées pour une gestion optimale de votre entreprise." />
-        <meta name="twitter:image" content="{{asset('assets/images/icon.jpeg')}}" /> <!-- Remplace par l'URL de ton image pour la carte -->
+        <meta name="twitter:image" content="{{asset('assets/images/icon.jpg')}}" /> <!-- Remplace par l'URL de ton image pour la carte -->
 
         <!-- Lien vers Bootstrap et Font Awesome -->
         <link

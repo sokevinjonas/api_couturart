@@ -41,7 +41,7 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="#" class="logo d-flex align-items-center w-auto">
-                    <img src="{{asset('assets/images/icon.jpeg')}}" alt="Couturart">
+                    <img src="{{asset('assets/images/icon.jpg')}}" alt="Couturart">
                   <span class="d-none d-lg-block">Couturart</span>
                 </a>
               </div>

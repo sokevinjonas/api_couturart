@@ -2,7 +2,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="{{ route('home') }}" class="logo d-flex align-items-center">
-        <img src="{{asset('assets/images/icon.jpeg')}}" alt="Couturart">
+        <img src="{{asset('assets/images/icon.jpg')}}" alt="Couturart">
         <span class="d-none d-lg-block">Couturart</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
