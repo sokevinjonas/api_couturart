@@ -76,44 +76,43 @@
         </div>
       </div><!-- Fin Actions récentes -->
 
-      <!-- Résumé des activités -->
       <div class="col-12">
         <div class="card top-selling overflow-auto">
           <div class="card-body pb-0">
-            <h5 class="card-title">Résumé des activités</h5>
+            <h5 class="card-title">Listes des récentes inscriptions de la semaine en cours</h5>
+            <p class="text-muted">Total des inscriptions cette semaine : <strong>{{ $last_user->count() }}</strong></p>
             <table class="table table-borderless">
               <thead>
                 <tr>
                   <th scope="col">Aperçu</th>
-                  <th scope="col">Description</th>
-                  <th scope="col">Statut</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Établissement</th>
+                  <th scope="col">Téléphone</th>
+                  <th scope="col">Pays</th>
                   <th scope="col">Date</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row"><a href="#"><i class="bi bi-person-plus"></i></a></th>
-                  <td>Nouvel utilisateur inscrit</td>
-                  <td class="text-success">Complété</td>
-                  <td>12:34</td>
-                </tr>
-                <tr>
-                  <th scope="row"><a href="#"><i class="bi bi-card-checklist"></i></a></th>
-                  <td>Licence générée</td>
-                  <td class="text-warning">En attente</td>
-                  <td>11:45</td>
-                </tr>
-                <tr>
-                  <th scope="row"><a href="#"><i class="bi bi-x-circle"></i></a></th>
-                  <td>Erreur de validation</td>
-                  <td class="text-danger">Échoué</td>
-                  <td>10:20</td>
-                </tr>
+                @forelse ($last_user as $user)
+                  <tr>
+                    <td><i class="bi bi-person-circle"></i></td>
+                    <td>{{ $user->nom }}</td>
+                    <td>{{ $user->etablissement }}</td>
+                    <td>{{ $user->telephone }}</td>
+                    <td>{{ $user->pays }}</td>
+                    <td>{{ \Carbon\Carbon::parse($user->created_at)->format('d/m/Y H:i') }}</td>
+                  </tr>
+                @empty
+                  <tr>
+                    <td colspan="6" class="text-center">Aucune inscription cette semaine.</td>
+                  </tr>
+                @endforelse
               </tbody>
             </table>
           </div>
         </div>
-      </div><!-- Fin Résumé des activités -->
+      </div>
+      
 
     </div>
   </div><!-- Fin colonne gauche -->
