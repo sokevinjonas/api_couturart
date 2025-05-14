@@ -98,7 +98,7 @@
                     <td><i class="bi bi-person-circle"></i></td>
                     <td>{{ $user->nom }}</td>
                     <td>{{ $user->etablissement }}</td>
-                    <td>{{ $user->telephone }}</td>
+                    <td>{{ $user->pays }} {{ $user->telephone }}</td>
                     <td>{{ $user->pays }}</td>
                     <td>{{ \Carbon\Carbon::parse($user->created_at)->format('d/m/Y H:i') }}</td>
                   </tr>
